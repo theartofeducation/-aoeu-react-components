@@ -1,2 +1,6 @@
 # env files
 .env
+.DS_Store
+
+node_modules
+storybook-static

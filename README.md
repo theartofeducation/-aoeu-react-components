@@ -1,15 +1,20 @@
-# AoEU Template Repo
+# AOEU React UI Component Library
 
-This is a template repo all AoEU repos should start with.
+This repository is a collection of shared React UI components for use in
+dependent projects (i.e. web and native app projects).
 
-## How To Use This Template
+## Dependencies
 
-1. Go to the "Create a new repository" page on GitHub
-1. Select this repo as the template in the "Repository template" field
-1. Check the "Include all branches" box
-1. Selct "theartofeducation" as the "Owner" of the repository
-1. Add the repository name
-1. Add a short description for the repository
-1. Select "Public" or "Private" as appropriate for the repository
-1. Click the "Create repository" button
-1. Update files and repository information as needed
+- [React](https://reactjs.org/)
+- [Storybook](https://storybook.js.org)
+
+## Tasks
+
+- `yarn run storybook` - runs a [local instance](http://localhost:6006) of Storybook
+- `yarn run build-storybook` - builds a static instance of Storybook for deployment/hosting/reference
+- `yarn run lint` - lint project for errors and style issues
+
+
+## Environments
+A live version of the production storybook is available at: 
+https://theartofeducation.github.io/aoeu-react-components/
