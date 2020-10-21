@@ -4,7 +4,7 @@
   "description": "AOEU React Component Library",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint ./stories",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
