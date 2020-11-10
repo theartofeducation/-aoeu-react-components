@@ -1,0 +1,92 @@
+// Brand Colors
+$aoeu-blue: #00AFD7;
+$aoeu-blue-dark: #0076A8;
+$aoeu-dark-gray: #545555;
+$aoeu-rio-grande: #C4D600;
+$aoeu-apple-green: #84BD00;
+$aoeu-observatory: #00966C;
+$aoeu-tiffany-blue: #00B2A9;
+$aoeu-allports: #0076A8;
+$aoeu-indigo: #486CC7;
+$aoeu-toolbox: #7474C1;
+$aoeu-purple-mountains-majesty: #A57FB2;
+$aoeu-free-speech-magenta: #E45DBF;
+$aoeu-vivid-cerise: #DF1995;
+$aoeu-shiraz: #BA0C2F;
+$aoeu-flamingo: #E5554F;
+$aoeu-mango-tango: #EA7600;
+$aoeu-sunglow: #FFC845;
+$aoeu-oracle: #395056;
+$aoeu-athens-gray: #EBF0F3;
+
+// Product Colors
+
+// Product: Masters
+$aoeu-masters-primary: $aoeu-blue;
+$aoeu-masters-secondary: $aoeu-blue-dark;
+$aoeu-masters-tertiary: #CFCFCF;
+
+// Product: Courses
+$aoeu-courses-primary: #485cc7;
+$aoeu-courses-secondary: #7474c1;
+$aoeu-courses-tertiary: $aoeu-blue;
+
+// Product: PRO
+$aoeu-pro-primary: $aoeu-flamingo;
+$aoeu-pro-secondary: $aoeu-sunglow;
+$aoeu-pro-tertiary: #f7bd98;
+
+// Product: FLEX
+$aoeu-flex-primary: $aoeu-tiffany-blue;
+$aoeu-flex-secondary: #4cc7e3;
+$aoeu-flex-tertiary: $aoeu-allports;
+
+// Product: Magazine
+$aoeu-magazine-primary: $aoeu-apple-green;
+$aoeu-magazine-secondary: $aoeu-rio-grande;
+$aoeu-magazine-tertiary: $aoeu-observatory;
+
+// Product: Conference
+$aoeu-conference-primary: $aoeu-free-speech-magenta;
+$aoeu-conference-secondary: $aoeu-rio-grande;
+$aoeu-conference-tertiary: $aoeu-mango-tango;
+
+:root {
+  --color-aoeu-blue: #{$aoeu-blue};
+  --color-aoeu-blue-dark: #{$aoeu-blue-dark};
+  --color-aoeu-dark-gray: #{$aoeu-dark-gray};
+  --color-aoeu-rio-grande: #{$aoeu-rio-grande};
+  --color-aoeu-apple-green: #{$aoeu-apple-green};
+  --color-aoeu-observatory: #{$aoeu-observatory};
+  --color-aoeu-tiffany-blue: #{$aoeu-tiffany-blue};
+  --color-aoeu-allports: #{$aoeu-allports};
+  --color-aoeu-indigo: #{$aoeu-indigo};
+  --color-aoeu-toolbox: #{$aoeu-toolbox};
+  --color-aoeu-purple-mountains-majesty: #{$aoeu-purple-mountains-majesty};
+  --color-aoeu-free-speech-magenta: #{$aoeu-free-speech-magenta};
+  --color-aoeu-vivid-cerise: #{$aoeu-vivid-cerise};
+  --color-aoeu-shiraz: #{$aoeu-shiraz};
+  --color-aoeu-flamingo: #{$aoeu-flamingo};
+  --color-aoeu-mango-tango: #{$aoeu-mango-tango};
+  --color-aoeu-sunglow: #{$aoeu-sunglow};
+  --color-aoeu-oracle: #{$aoeu-oracle};
+  --color-aoeu-athens-gray: #{$aoeu-athens-gray};
+  --color-masters-primary: #{$aoeu-masters-primary};
+  --color-masters-secondary: #{$aoeu-masters-secondary};
+  --color-masters-tertiary: #{$aoeu-masters-tertiary};
+  --color-courses-primary: #{$aoeu-courses-primary};
+  --color-courses-secondary: #{$aoeu-courses-secondary};
+  --color-courses-tertiary: #{$aoeu-courses-tertiary};
+  --color-pro-primary: #{$aoeu-pro-primary};
+  --color-pro-secondary: #{$aoeu-pro-secondary};
+  --color-pro-tertiary: #{$aoeu-pro-tertiary};
+  --color-flex-primary: #{$aoeu-flex-primary};
+  --color-flex-secondary: #{$aoeu-flex-secondary};
+  --color-flex-tertiary: #{$aoeu-flex-tertiary};
+  --color-magazine-primary: #{$aoeu-magazine-primary};
+  --color-magazine-secondary: #{$aoeu-magazine-secondary};
+  --color-magazine-tertiary: #{$aoeu-magazine-tertiary};
+  --color-conference-primary: #{$aoeu-conference-primary};
+  --color-conference-secondary: #{$aoeu-conference-secondary};
+  --color-conference-tertiary: #{$aoeu-conference-tertiary};
+}

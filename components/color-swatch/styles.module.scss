@@ -1,0 +1,186 @@
+@import "../../sass/modules/colors";
+@import "../../sass/modules/typography";
+@import "../../sass/modules/animations";
+
+$size: 7rem;
+
+.colorSwatch {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gradientSwatch {
+  margin: 0.75rem;
+}
+
+.gradientSwatchContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.gradientSwatchDirectionToggles {
+  align-items: center;
+  background: var(--color-aoeu-athens-gray);
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 1.5rem;
+  overflow: hidden;
+  width: #{$size};
+}
+
+.gradientSwatchDirectionTogglesCenter {
+  --size: 2.33rem;
+  height: var(--size);
+  width: var(--size);
+}
+
+$corner-offset: 0.5rem;
+
+.gradientSwatchDirectionToggleButton {
+  --size: 2.33rem;
+  @include smooth-transitions;
+  align-items: center;
+  background: var(--color-aoeu-athens-gray);
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  height: var(--size);
+  justify-content: center;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  width: var(--size);
+
+  &:hover {
+    background: var(--color-aoeu-oracle);
+
+    .arrowIcon {
+      --size: 1.5rem;
+      color: var(--color-aoeu-blue);
+      height: var(--size);
+      width: var(--size);
+
+      &.arrowTopLeft,
+      &.arrowTopRight,
+      &.arrowBottomLeft,
+      &.arrowBottomRight {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.arrowIcon {
+  --size: 1rem;
+  @include smooth-transitions;
+  color: var(--color-aoeu-oracle);
+  height: var(--size);
+  width: var(--size);
+}
+
+.arrowTopLeft {
+  transform: rotate(135deg);
+  margin: 0 -#{$corner-offset} -#{$corner-offset} 0;
+}
+
+.arrowTopMiddle {
+  transform: rotate(180deg);
+}
+
+.arrowTopRight {
+  transform: rotate(225deg);
+  margin: 0 0 -#{$corner-offset} -#{$corner-offset};
+}
+
+.arrowLeftMiddle {
+  transform: rotate(90deg);
+}
+
+.arrowRightMiddle {
+  transform: rotate(270deg);
+}
+
+.arrowBottomLeft {
+  transform: rotate(45deg);
+  margin: -#{$corner-offset} -#{$corner-offset} 0 0;
+}
+
+.arrowBottomMiddle {
+  transform: rotate(360deg);
+}
+
+.arrowBottomRight {
+  transform: rotate(315deg);
+  margin: -#{$corner-offset} 0 0 -#{$corner-offset};
+
+  button & {
+    &:hover {
+      .arrowIcon {
+        margin: #{$corner-offset} 0 0 #{$corner-offset};
+      }
+    }
+  }
+}
+
+.swatch {
+  --size: #{$size};
+  align-items: center;
+  border-radius: 0.35rem;
+  display: flex;
+  height: var(--size);
+  justify-content: center;
+  width: var(--size);
+
+  &:hover {
+    .hexCode {
+      font-weight: bold;
+    }
+  }
+}
+
+.hexCode {
+  cursor: pointer;
+}
+
+.darkColor {
+  color: #fff;
+}
+
+.colorName {
+  @include type-setting(-1);
+  max-width: #{$size};
+  text-align: center;
+  white-space: wrap;
+}
+
+.colorVariableName {
+  @include monotype;
+  @include type-setting(-1);
+  background: #eee;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  margin: 0.75rem 0;
+  max-width: calc(#{$size} - 1rem);
+  overflow-x: scroll;
+  padding: 0.05rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.gradientStyleContent {
+  @include monotype;
+  @include type-setting(-1);
+  background: #eee;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  margin: 0.75rem 0;
+  max-width: calc((#{$size} * 2) + 0.5rem);
+  overflow-x: scroll;
+  padding: 0.05rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
