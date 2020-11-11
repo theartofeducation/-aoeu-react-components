@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Guides/Typography" />
+
+# Typography
+
+At The Art of Education University, our primary typefaces for web projects are Proxima Nova and Chaparral Pro. In most cases, using these typefaces for your project should be fairly simple with the use of a Sass `@import` statement in your primary stylesheet:
+
+```scss
+@import "@aoeu/ui-common/sass/modules/typography";
+```
+
+If this turns out to be insufficient or if you need more low-level control over loading it, in the core library this is just importing the TypeKit URL that loads our typeface for using in our styles, and you can do similarly with a direct import of our TypeKit URL:
+
+```scss
+@import url("https://use.typekit.net/fmc7wgn.css");
+```
+
+The following Sass variables are defined for our base typography settings:
+
+```scss
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$primary-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font-family: "chaparral-pro", Georgia, serif;
+```
+
+As a result, when you import the base `typography` module as outlined above, you can use these variables to set your `font-family` values in your styles:
+
+```scss
+body {
+  font-family: $primary-font-family;
+}
+
+p {
+  font-family: $secondary-font-family;
+}
+```
