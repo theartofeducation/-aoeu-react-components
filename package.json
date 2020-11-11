@@ -1,12 +1,12 @@
 {
-  "name": "@aoeu/react-components",
+  "name": "@aoeu/ui-common",
   "version": "0.0.1",
-  "description": "AOEU React Component Library",
+  "description": "AOEU UI shared resources Library",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./stories",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./static -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
@@ -28,15 +28,28 @@
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-docs": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.26",
     "@storybook/addon-links": "^6.0.26",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.0.26",
+    "@storybook/theming": "^6.0.28",
+    "@svgr/webpack": "^5.4.0",
     "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
     "eslint": "^7.11.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-mdx": "^1.8.2",
     "eslint-plugin-react": "^7.21.5",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "sass": "^1.27.1",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "react-toastify": "^6.0.9"
   }
 }

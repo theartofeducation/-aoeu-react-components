@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.centered {
+  justify-content: center;
+}
+
+.trimmed {
+  li:first-child {
+    margin-left: 0;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
+
+.listItem {
+  margin: 0.75rem;
+}

@@ -16,5 +16,5 @@ dependent projects (i.e. web and native app projects).
 
 
 ## Environments
-A live version of the production storybook is available at: 
-https://theartofeducation.github.io/aoeu-react-components/
+A live version of the production storybook is available at:
+https://theartofeducation.github.io/ui-common/

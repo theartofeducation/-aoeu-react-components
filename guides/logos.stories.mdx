@@ -1,0 +1,178 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+import { AOEULogo } from "../components/logos"
+import styles from "./logos.module.scss"
+
+<Meta title="Guides/Logos" />
+
+# Brand and Product Logos
+
+All organizational brand and product logos are available for consumption from
+this resource.
+
+## Brand Logos
+
+Depending on your use case, our brand and product logos can be consumed by dependent projects in a couple of different ways. The logo images are available as standalone SVG image files, or, we also have [a logo component available](/?path=/story/components-logo--brand-logo) as well, which provides some flexible options for rendering the logo images.
+
+### Horizontal Variant
+To import and use one of the horizontal brand logo SVGs directly, you can import or reference it from this project in a manner similar to this, depending on your use case:
+
+```js
+import AOEULogo from "@aoeu/ui-common/images/logos/aoeu-logo-horizontal.svg"
+```
+
+This can then be used as the source for an image tag in the following manner:
+
+```jsx
+<img src={AOEULogo} alt="The Art of Education University Logo - horizontal" />
+```
+
+They are also available wrapped in a component as demonstrated below, and can be imported as:
+
+```js
+import { AOEULogo } from "@aoeu/ui-common/components/logos"
+```
+
+#### Extra Small
+<AOEULogo
+  variant="horizontal"
+  size="xs"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="xs"
+  className={styles.yourCustomClass} />
+```
+
+#### Small
+<AOEULogo
+  variant="horizontal"
+  size="s"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="s"
+  className={styles.yourCustomClass} />
+```
+
+#### Medium (default)
+<AOEULogo
+  variant="horizontal"
+  size="m"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="m"
+  className={styles.yourCustomClass} />
+```
+
+#### Large
+<AOEULogo
+  variant="horizontal"
+  size="l"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="l"
+  className={styles.yourCustomClass} />
+```
+
+#### Extra Large
+<AOEULogo
+  variant="horizontal"
+  size="xl"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="xl"
+  className={styles.yourCustomClass} />
+```
+
+#### Fill
+<AOEULogo
+  variant="horizontal"
+  size="fill"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="horizontal"
+  size="fill"
+  className={styles.yourCustomClass} />
+```
+
+### Vertical Variant
+
+#### Extra Small
+<AOEULogo
+  variant="vertical"
+  size="xs"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="vertical"
+  size="xs"
+  className={styles.yourCustomClass} />
+```
+
+#### Small
+<AOEULogo
+  variant="vertical"
+  size="s"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="vertical"
+  size="s"
+  className={styles.yourCustomClass} />
+```
+
+#### Medium (default)
+<AOEULogo
+  variant="vertical"
+  size="m"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="vertical"
+  size="m"
+  className={styles.yourCustomClass} />
+```
+
+#### Large
+<AOEULogo
+  variant="vertical"
+  size="l"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="vertical"
+  size="l"
+  className={styles.yourCustomClass} />
+```
+
+#### Extra Large
+<AOEULogo
+  variant="vertical"
+  size="xl"
+  className={styles.logo} />
+
+```jsx
+<AOEULogo
+  variant="vertical"
+  size="xl"
+  className={styles.yourCustomClass} />
+```
