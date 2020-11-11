@@ -5,16 +5,16 @@ dependent projects (i.e. web and native app projects).
 
 ## Dependencies
 
-- [React](https://reactjs.org/)
-- [Storybook](https://storybook.js.org)
+* [React](https://reactjs.org/)
+* [Storybook](https://storybook.js.org)
 
 ## Tasks
 
-- `yarn run storybook` - runs a [local instance](http://localhost:6006) of Storybook
-- `yarn run build-storybook` - builds a static instance of Storybook for deployment/hosting/reference
-- `yarn run lint` - lint project for errors and style issues
-
+* `yarn run storybook` - runs a [local instance](http://localhost:6006) of Storybook
+* `yarn run build-storybook` - builds a static instance of Storybook for deployment/hosting/reference
+* `yarn run lint` - lint project for errors and style issues
 
 ## Environments
+
 A live version of the production storybook is available at:
-https://theartofeducation.github.io/ui-common/
+[https://theartofeducation.github.io/ui-common/](https://theartofeducation.github.io/ui-common/)

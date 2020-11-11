@@ -21,6 +21,11 @@ module.exports = {
     es6: true,
     node: true
   },
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   rules: {
     "max-len": ["warn", { "code": 100 }],
     "semi": ["error", "never"],
