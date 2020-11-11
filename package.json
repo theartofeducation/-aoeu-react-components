@@ -4,7 +4,7 @@
   "description": "AOEU UI shared resources Library",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./stories",
+    "lint": "eslint --ext .js --ext .jsx stories components",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -s ./static -p 6006",
     "build-storybook": "build-storybook"
