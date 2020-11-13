@@ -9,19 +9,20 @@
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -s ./static -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "version": "standard-version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theartofeducation/aoeu-react-components.git"
+    "url": "git+https://github.com/theartofeducation/ui-common.git"
   },
   "keywords": [],
   "author": "The Art of Education University",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theartofeducation/aoeu-react-components/issues"
+    "url": "https://github.com/theartofeducation/ui-common/issues"
   },
-  "homepage": "https://github.com/theartofeducation/aoeu-react-components#readme",
+  "homepage": "https://github.com/theartofeducation/ui-common#readme",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
@@ -31,12 +32,13 @@
     "@babel/preset-env": "^7.12.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/prompt": "^11.0.0",
     "@storybook/addon-actions": "^6.0.26",
     "@storybook/addon-docs": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.26",
     "@storybook/addon-links": "^6.0.26",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.0.26",
+    "@storybook/react": "^6.0.28",
     "@storybook/theming": "^6.0.28",
     "@svgr/webpack": "^5.4.0",
     "babel-loader": "^8.1.0",
@@ -53,6 +55,7 @@
     "react-is": "^16.13.1",
     "sass": "^1.27.1",
     "sass-loader": "^10.0.4",
+    "standard-version": "^9.0.0",
     "style-loader": "^2.0.0"
   },
   "dependencies": {
@@ -63,6 +66,12 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "yarn run lint"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
     }
   }
 }
