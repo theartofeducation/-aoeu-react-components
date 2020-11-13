@@ -7,6 +7,10 @@ body {
   font-family: 'proxima-nova', 'Helvetica Neue', 'Helvetica', sans-serif !important;
 }
 
+.sbdocs-wrapper {
+  padding: 2rem !important;
+}
+
 .sbdocs-p, code {
   font-size: 1.125rem !important;
 }
