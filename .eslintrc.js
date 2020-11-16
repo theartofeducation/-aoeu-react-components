@@ -21,6 +21,11 @@ module.exports = {
     es6: true,
     node: true
   },
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   rules: {
     "max-len": ["warn", { "code": 100 }],
     "semi": ["error", "never"],
@@ -30,7 +35,7 @@ module.exports = {
     "func-names": "off",
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "never"],
-    "indent": ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }],
+    "indent": ["error", 2, { "FunctionDeclaration": { "body": 1, "parameters": 2 } }],
     "object-curly-spacing": ["error", "always"],
     "global-require": "warn",
     "import/no-dynamic-require": "warn",
@@ -47,7 +52,8 @@ module.exports = {
     "no-invalid-this": "off",
     "prefer-destructuring": "off",
     "require-jsdoc": "off",
-    "valid-jsdoc": "off"
+    "valid-jsdoc": "off",
+    "react/jsx-closing-bracket-location": ["error", "after-props"]
   },
   overrides: [
     {

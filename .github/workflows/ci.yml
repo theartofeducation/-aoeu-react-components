@@ -2,6 +2,7 @@ name: UI Common Library CI
 on: push
 jobs:
   test:
+    name: Lint, Build, Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

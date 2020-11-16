@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 MD025 -->
 # Decision Log Book
 
 Taken from [Decision Management in Software Engineering](https://medium.com/swlh/decision-management-in-software-engineering-ca60f9d40e02)
@@ -66,3 +67,4 @@ We have no known limitations at this time.
 
 Vue JS
 Svelte JS
+<!-- markdownlint-enable MD024 MD025 -->

@@ -51,8 +51,8 @@ const compareStoryPaths = (order, path1, path2) => {
 }
 
 const storiesOrder = {
+  home: null,
   guides: {
-    introduction: null,
     colors: null,
     typography: null,
     logos: null
