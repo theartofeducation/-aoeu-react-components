@@ -1,0 +1,64 @@
+// TypeKit import
+@import url("https://use.typekit.net/fmc7wgn.css");
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$primary-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font-family: "chaparral-pro", Georgia, serif;
+
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height * 2
+  ),
+  2: (
+    font-size: 1.778rem,
+    line-height: $base-line-height * 2
+  )
+);
+
+@function type-scale($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'line-height');
+}
+
+@mixin type-setting($level) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+html,
+body {
+  font-family: $primary-font-family;
+  @include type-setting(0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+@mixin monotype {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+.monotype {
+  @include monotype;
+}

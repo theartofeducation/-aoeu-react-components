@@ -1,0 +1,108 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+import { NotificationCenter } from "../components/notification"
+import { Icons } from "../components/icons"
+import {
+  AoeuBrandColorPalette,
+  MastersProductColorPalette,
+  CoursesProductColorPalette,
+  PROProductColorPalette,
+  FLEXProductColorPalette,
+  MagazineProductColorPalette,
+  ConferenceProductColorPalette
+} from "../components/color-palettes"
+import styles from "./colors.module.scss"
+
+<Meta title="Guides/Colors" />
+
+# Colors
+
+Guidelines and information about our organization and product color palettes
+and themes.
+
+## Consuming From Dependent Libraries and Projects
+
+Color variables can be imported for use use in your projects in the following ways.
+
+To import it into a Sass (`.scss` or `.sass`) file for use:
+
+```scss
+@import "@aoeu/ui-common/sass/modules/colors";
+```
+
+To import it into a JavaScript component or module, similarly:
+
+```js
+import "@aoeu/ui-common/sass/modules/colors.scss"
+```
+
+This will expose the full color palette in the CSS `:root` element as a
+collection of native CSS variables.
+
+```css
+:root {
+  --color-aoeu-blue: #{$aoeu-blue};
+  --color-aoeu-blue-dark: #{$aoeu-blue-dark};
+  --color-aoeu-dark-gray: #{$aoeu-dark-gray};
+  --color-aoeu-rio-grande: #{$aoeu-rio-grande};
+  --color-aoeu-apple-green: #{$aoeu-apple-green};
+  --color-aoeu-observatory: #{$aoeu-observatory};
+  --color-aoeu-tiffany-blue: #{$aoeu-tiffany-blue};
+  --color-aoeu-allports: #{$aoeu-allports};
+  --color-aoeu-indigo: #{$aoeu-indigo};
+  --color-aoeu-toolbox: #{$aoeu-toolbox};
+  --color-aoeu-purple-mountains-majesty: #{$aoeu-purple-mountains-majesty};
+  --color-aoeu-free-speech-magenta: #{$aoeu-free-speech-magenta};
+  --color-aoeu-vivid-cerise: #{$aoeu-vivid-cerise};
+  --color-aoeu-shiraz: #{$aoeu-shiraz};
+  --color-aoeu-flamingo: #{$aoeu-flamingo};
+  --color-aoeu-mango-tango: #{$aoeu-mango-tango};
+  --color-aoeu-sunglow: #{$aoeu-sunglow};
+  --color-aoeu-oracle: #{$aoeu-oracle};
+  --color-aoeu-athens-gray: #{$aoeu-athens-gray};
+  /* ... */
+}
+```
+
+Which can then be referenced in your project's Sass/CSS using the native CSS
+`var` keyword:
+
+```css
+.your-custom-class {
+  background: var(--color-aoeu-blue);
+}
+```
+
+> **NOTE**: When using the values below, most commonly it will be preferable to use the color variable name (`var(--color-aoeu-blue)`), so that if/when the actual hex code values of those color variables change, your project will automatically inherit the new value via the use of the color variable name, which should rarely ever need to change.
+
+## AOEU Brand Colors
+
+<AoeuBrandColorPalette />
+
+## Masters Product Colors
+
+<MastersProductColorPalette />
+
+## Courses Product Colors
+
+<CoursesProductColorPalette />
+
+## PRO Product Colors
+
+<PROProductColorPalette />
+
+## FLEX Product Colors
+
+<FLEXProductColorPalette />
+
+## Magazine Product Colors
+
+<MagazineProductColorPalette />
+
+## Conference Product Colors
+
+<ConferenceProductColorPalette />
+
+<section>
+  <NotificationCenter />
+</section>
+<Icons />
