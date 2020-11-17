@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "yarn run eslint && yarn run mdlint",
-    "eslint": "eslint --ext .js --ext .jsx stories components tests",
+    "eslint": "eslint --ext .js --ext .jsx stories components",
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\"",
     "test": "jest",
     "storybook": "start-storybook -s ./static -p 6006",
