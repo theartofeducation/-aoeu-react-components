@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
-import styles from "./styles.module.scss"
 
 /**
  * Creates an anchor tag <a> that opens the given URL in a new window/tab
@@ -9,7 +8,7 @@ import styles from "./styles.module.scss"
 export const ExternalLink = ({ url, className, children }) => (
   <a
     href={ url }
-    className={ clsx([styles.externalLink, className])}
+    className={ clsx([className])}
     target="_blank"
     rel="noreferrer">
     {children}
