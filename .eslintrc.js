@@ -15,11 +15,12 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ["@babel", "react", "jsx-a11y", "import"],
+  plugins: ["@babel", "react", "jsx-a11y", "import", "jest"],
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
+    "jest/globals": true
   },
   settings: {
     react: {
