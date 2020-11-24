@@ -8,7 +8,8 @@
     "eslint": "eslint --ext .js --ext .jsx stories components",
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\"",
     "test": "jest",
-    "build": "webpack --config ../../webpack.config.js"
+    "build": "webpack --config ../../webpack.config.js",
+    "version": "standard-version"
   },
   "author": "The Art of Education University",
   "license": "MIT",
