@@ -4,5 +4,8 @@
 
 node_modules
 storybook-static
-dist
+stories
+guides
+.github
+.storybook
 *-error.log

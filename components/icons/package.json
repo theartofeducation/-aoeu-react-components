@@ -1,0 +1,21 @@
+{
+  "name": "@aoeu/icons",
+  "version": "0.0.1",
+  "description": "SVG Icon Components",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "yarn run eslint && yarn run mdlint",
+    "eslint": "eslint --ext .js --ext .jsx stories components",
+    "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\"",
+    "test": "jest",
+    "build": "webpack --config ../../webpack.config.js"
+  },
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
+  }
+}

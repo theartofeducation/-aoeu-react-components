@@ -1,14 +1,9 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const pkg = require("./package.json")
-
-const production = process.env.NODE_ENV === "production"
 
 module.exports = {
   entry: "./components/index.js",
   output: {
-    filename: pkg.main,
-    library: "@aoeu/ui-common",
-    libraryTarget: "commonjs"
+    filename: pkg.main
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -37,7 +32,7 @@ module.exports = {
           {
             test: /\.module\.(scss|sass|css)$/,
             use: [
-              production ? MiniCssExtractPlugin.loader : "style-loader",
+              "style-loader",
               {
                 loader: "css-loader",
                 options: {
@@ -52,7 +47,7 @@ module.exports = {
           },
           {
             use: [
-              production ? MiniCssExtractPlugin.loader : "style-loader",
+              "style-loader",
               "css-loader",
               "sass-loader"
             ]
@@ -65,9 +60,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin()
-  ],
+  plugins: [],
   externals: {
     "react": {
       root: "React",
