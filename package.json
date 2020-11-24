@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "AOEU UI shared resources Library",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "lint": "yarn run eslint && yarn run mdlint",
     "eslint": "eslint --ext .js --ext .jsx stories components",
