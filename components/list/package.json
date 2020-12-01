@@ -2,7 +2,10 @@
   "name": "@aoeu/list",
   "version": "0.0.2",
   "description": "List and ListItem Components for rendering unordered lists",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "author": "The Art of Education University",
   "license": "MIT",
   "peerDependencies": {

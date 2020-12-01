@@ -2,7 +2,10 @@
   "name": "@aoeu/logos",
   "version": "0.0.2",
   "description": "AOEU Logo Components",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "author": "The Art of Education University",
   "license": "MIT",
   "peerDependencies": {

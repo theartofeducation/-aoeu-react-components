@@ -2,7 +2,10 @@
   "name": "@aoeu/notification",
   "version": "0.0.2",
   "description": "Notification Components for rendering UI notifications (toast style)",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "author": "The Art of Education University",
   "license": "MIT",
   "peerDependencies": {

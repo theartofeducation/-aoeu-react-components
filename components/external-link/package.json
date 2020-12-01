@@ -2,7 +2,10 @@
   "name": "@aoeu/external-link",
   "version": "0.0.2",
   "description": "External Link Component - an anchor tag that will open its link in a new window or tab",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "author": "The Art of Education University",
   "license": "MIT",
   "peerDependencies": {

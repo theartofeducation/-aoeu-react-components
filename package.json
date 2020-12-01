@@ -9,12 +9,11 @@
     "eslint": "eslint --ext .js --ext .jsx stories components",
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\" --ignore \"**/CHANGELOG.md\"",
     "test": "jest",
-    "build": "webpack",
     "storybook": "start-storybook -s ./static -p 6006",
     "build-storybook": "build-storybook",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
-    "prepare": "lerna run build"
+    "prepublishOnly": "lerna run build"
   },
   "repository": {
     "type": "git",
