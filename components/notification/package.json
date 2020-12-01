@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/notification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Notification Components for rendering UI notifications (toast style)",
   "main": "dist/index.js",
   "author": "The Art of Education University",
@@ -9,7 +9,7 @@
     "react": "~17.0.0"
   },
   "scripts": {
-    "build": "webpack --config ../../webpack.config.js",
-    "prepare": "rm -rf ./dist && yarn run build"
+    "prebuild": "rm -rf ./dist",
+    "build": "webpack --config ../../webpack.config.js"
   }
 }

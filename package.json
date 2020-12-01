@@ -14,7 +14,7 @@
     "build-storybook": "build-storybook",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
-    "prepare": "rm -rf ./dist && yarn run build"
+    "prepare": "lerna run build"
   },
   "repository": {
     "type": "git",
