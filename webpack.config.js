@@ -1,7 +1,7 @@
 const pkg = require("./package.json")
 
 module.exports = {
-  entry: "./components/index.js",
+  entry: "./index.js",
   output: {
     filename: pkg.main
   },
