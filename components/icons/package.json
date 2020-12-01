@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/icons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "SVG Icon Components",
   "main": "index.js",
   "files": [
