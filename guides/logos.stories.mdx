@@ -11,14 +11,20 @@ this resource.
 
 ## Brand Logos
 
-Depending on your use case, our brand and product logos can be consumed by dependent projects in a couple of different ways. The logo images are available as standalone SVG image files, or, we also have [a logo component available](/?path=/story/components-logo--brand-logo) as well, which provides some flexible options for rendering the logo images.
+Depending on your use case, our brand and product logos can be consumed by dependent projects in a couple of different ways. The logo images are available as standalone SVG image files, or, we also have [a logo component available](/?path=/story/components-logo--brand-logo) as well (`@aoeu/logos`), which provides some flexible options for rendering the logo images.
 
-### Horizontal Variant
+For [React](https://reactjs.org) projects we recommend using the components. When using a component is practical or just not necessary, you can also use just the standalone SVG images of the logos with the `@aoeu/logo-svgs` package.
 
-To import and use one of the horizontal brand logo SVGs directly, you can import or reference it from this project in a manner similar to this, depending on your use case:
+### Using the standalone SVGs package
+
+```shell
+yarn add @aoeu/logo-svgs
+```
+
+After you've added the `@aoeu/logo-svgs` package as a dependency to your project, you can then import and use the logos like this:
 
 ```js
-import AOEULogo from "@aoeu/ui-common/images/logos/aoeu-logo-horizontal.svg"
+import AOEULogo from "@aoeu/logo-svgs/aoeu-logo-horizontal.svg"
 ```
 
 This can then be used as the source for an image tag in the following manner:
@@ -27,164 +33,29 @@ This can then be used as the source for an image tag in the following manner:
 <img src={AOEULogo} alt="The Art of Education University Logo - horizontal" />
 ```
 
-They are also available wrapped in a component as demonstrated below, and can be imported as:
+Here is a list of the available SVG logo images available in the package:
+
+* `aoeu-logo-horizontal.svg`
+* `aoeu-logo-mark.svg`
+* `aoeu-logo-vertical.svg`
+* `conference-product-logo.svg`
+* `flex-pro-product-bundle-logo.svg`
+* `flex-product-logo.svg`
+* `graduate-course-product-logo.svg`
+* `magazine-product-logo.svg`
+* `masters-product-logo.svg`
+* `pro-product-logo.svg`
+
+### Using the logo components package
+
+```shell
+yarn add @aoeu/logos
+```
+
+After you've added the `@aoeu/logos` package as a dependency to your project, you can then import and use the logo components like this:
 
 ```js
-import { AOEULogo } from "@aoeu/ui-common/components/logos"
+import { AOEULogo } from "@aoeu/logos"
 ```
 
-#### Extra Small
-
-<AOEULogo
-  variant="horizontal"
-  size="xs"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="xs"
-  className={styles.yourCustomClass} />
-```
-
-#### Small
-
-<AOEULogo
-  variant="horizontal"
-  size="s"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="s"
-  className={styles.yourCustomClass} />
-```
-
-#### Medium (default)
-
-<AOEULogo
-  variant="horizontal"
-  size="m"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="m"
-  className={styles.yourCustomClass} />
-```
-
-#### Large
-
-<AOEULogo
-  variant="horizontal"
-  size="l"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="l"
-  className={styles.yourCustomClass} />
-```
-
-#### Extra Large
-
-<AOEULogo
-  variant="horizontal"
-  size="xl"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="xl"
-  className={styles.yourCustomClass} />
-```
-
-#### Fill
-
-<AOEULogo
-  variant="horizontal"
-  size="fill"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="horizontal"
-  size="fill"
-  className={styles.yourCustomClass} />
-```
-
-### Vertical Variant
-
-#### Extra Small
-
-<AOEULogo
-  variant="vertical"
-  size="xs"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="vertical"
-  size="xs"
-  className={styles.yourCustomClass} />
-```
-
-#### Small
-
-<AOEULogo
-  variant="vertical"
-  size="s"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="vertical"
-  size="s"
-  className={styles.yourCustomClass} />
-```
-
-#### Medium (default)
-
-<AOEULogo
-  variant="vertical"
-  size="m"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="vertical"
-  size="m"
-  className={styles.yourCustomClass} />
-```
-
-#### Large
-
-<AOEULogo
-  variant="vertical"
-  size="l"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="vertical"
-  size="l"
-  className={styles.yourCustomClass} />
-```
-
-#### Extra Large
-
-<AOEULogo
-  variant="vertical"
-  size="xl"
-  className={styles.logo} />
-
-```jsx
-<AOEULogo
-  variant="vertical"
-  size="xl"
-  className={styles.yourCustomClass} />
-```
+See [the logo component stories](/?path=/story/components-brand-and-product-logos--brand-logo) for more details on the available component options.
