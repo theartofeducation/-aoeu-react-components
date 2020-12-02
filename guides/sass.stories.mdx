@@ -1,0 +1,51 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Packages/Sass" />
+
+# Sass Common
+
+This package contains a collection of shared/common Sass modules for consumption by dependent projects for the maintenance and reuse of common styling across AOEU's various web projects.
+
+```shell
+yarn add @aoeu/sass-common
+```
+
+## Available Modules
+
+Modules are available in the `modules` folder and should be referenced as follows:
+
+```scss
+@import "@aoeu/sass-common/modules/<MODULE_NAME>";
+```
+
+### Animations (`_animations.scss`)
+
+Common styles and mixins for animating content.
+
+```scss
+@import "@aoeu/sass-common/modules/animations";
+```
+
+### Colors (`_colors.scss`)
+
+Brand color palette with both Sass and CSS Custom Properties. See [the Colors Guide](/?path=/story/guides-colors--page) for more details.
+
+```scss
+@import "@aoeu/sass-common/modules/colors";
+```
+
+### Layout (`_layout.scss`)
+
+Common styles and mixins for content layout and organization.
+
+```scss
+@import "@aoeu/sass-common/modules/layout";
+```
+
+### Typography (`_typography.scss`)
+
+Common styles and element typography definitions. See [the Typography Guide](/?path=/story/guides-typography--page) for more details.
+
+```scss
+@import "@aoeu/sass-common/modules/typography";
+```
