@@ -2,7 +2,7 @@ module.exports = {
   entry: "./index.js",
   output: {
     filename: "index.js",
-    library: ["aoeu-ui-common"],
+    library: "aoeu-ui-common",
     libraryTarget: "umd"
   },
   resolve: {

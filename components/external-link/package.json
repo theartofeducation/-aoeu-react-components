@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "External Link Component - an anchor tag that will open its link in a new window or tab",
   "main": "index.js",
+  "module": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
