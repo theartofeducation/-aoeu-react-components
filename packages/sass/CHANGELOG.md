@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.1](https://github.com/theartofeducation/ui-common/compare/@aoeu/sass-common@0.1.0...@aoeu/sass-common@0.1.1) (2020-12-02)
+
+
+### Documentation
+
+* **ch55:** added documentation for the Sass package usage ([59f0608](https://github.com/theartofeducation/ui-common/commit/59f060830976f1be7a2ce97a8c4781edd30de4c0))
+
+
+
 ## 0.1.0 (2020-12-02)
 
 

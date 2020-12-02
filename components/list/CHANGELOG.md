@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.1](https://github.com/theartofeducation/ui-common/compare/@aoeu/list@0.1.0...@aoeu/list@0.1.1) (2020-12-02)
+
+
+### Other
+
+* **ch55:** cleaned up packages and build tasks ([a7323a8](https://github.com/theartofeducation/ui-common/commit/a7323a85b1326d26b032515f0c4196630447d727))
+
+
+### Documentation
+
+* **ch55:** updated package READMEs and documentation ([9df6843](https://github.com/theartofeducation/ui-common/commit/9df68437fb49ff5885381c6f3d300576ad5ecdc1))
+
+
+
 ## [0.1.0](https://github.com/theartofeducation/ui-common/compare/@aoeu/list@0.0.3...@aoeu/list@0.1.0) (2020-12-02)
 
 
