@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "description": "Notification Components for rendering UI notifications (toast style)",
   "main": "index.js",
+  "module": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
   "author": "The Art of Education University",
   "license": "MIT",
+  "dependencies": {
+    "@aoeu/util": "^0.0.1"
+  },
   "peerDependencies": {
     "react": "~17.0.0"
   },
