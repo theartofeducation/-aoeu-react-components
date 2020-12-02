@@ -1,9 +1,9 @@
-const pkg = require("./package.json")
-
 module.exports = {
   entry: "./index.js",
   output: {
-    filename: pkg.main
+    filename: "index.js",
+    library: ["aoeu-ui-common"],
+    libraryTarget: "commonjs"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
