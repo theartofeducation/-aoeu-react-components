@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.1](https://github.com/theartofeducation/ui-common/compare/@aoeu/external-link@0.1.0...@aoeu/external-link@0.1.1) (2020-12-02)
+
+
+### Documentation
+
+* **ch55:** updated ExternalLink README ([420e251](https://github.com/theartofeducation/ui-common/commit/420e251acbefef579dcf04555547c35fbd3ad871))
+
+
+
 ## [0.1.0](https://github.com/theartofeducation/ui-common/compare/@aoeu/external-link@0.0.3...@aoeu/external-link@0.1.0) (2020-12-02)
 
 
