@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming/create";
-import AOEULogo from "../images/logos/aoeu-logo-vertical.svg"
+import AOEULogo from "../packages/logo-svgs/aoeu-logo-vertical.svg"
 
 export const theme = create({
   base: "light",

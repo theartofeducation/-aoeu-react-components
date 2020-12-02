@@ -1,5 +1,8 @@
 {
-  "packages": ["components/*"],
+  "packages": [
+    "components/*",
+    "packages/*"
+  ],
   "version": "independent",
   "npmCLient": "yarn",
   "changelogPreset": "./changelog.config.js",

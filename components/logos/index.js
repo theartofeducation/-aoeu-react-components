@@ -1,8 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
-import { ReactComponent as AOEULogoHorizontal } from "../../images/logos/aoeu-logo-horizontal.svg"
-import { ReactComponent as AOEULogoVertical } from "../../images/logos/aoeu-logo-vertical.svg"
+import {
+  ReactComponent as AOEULogoHorizontal
+} from "../../packages/logo-svgs/aoeu-logo-horizontal.svg"
+import {
+  ReactComponent as AOEULogoVertical
+} from "../../packages/logo-svgs/aoeu-logo-vertical.svg"
 import styles from "./styles.module.scss"
 
 /**
