@@ -2,8 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
 
-// just need to change something
-
 /**
  * Creates an anchor tag <a> that opens the given URL in a new window/tab
  */

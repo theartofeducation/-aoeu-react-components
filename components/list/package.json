@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "List and ListItem Components for rendering unordered lists",
   "main": "index.js",
+  "module": "dist/index.js",
   "files": [
     "dist/index.js"
   ],

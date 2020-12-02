@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "SVG Icon Components",
   "main": "index.js",
+  "module": "dist/index.js",
   "files": [
     "dist/index.js"
   ],

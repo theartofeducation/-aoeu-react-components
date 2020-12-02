@@ -10,7 +10,9 @@
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"node_modules/**\" --ignore \"**/CHANGELOG.md\"",
     "test": "jest",
     "storybook": "start-storybook -s ./static -p 6006",
+    "sb": "yarn run storybook",
     "build-storybook": "build-storybook",
+    "bootstrap": "lerna bootstrap",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
     "prepublishOnly": "lerna run build"
@@ -20,7 +22,8 @@
     "url": "git+https://github.com/theartofeducation/ui-common.git"
   },
   "workspaces": [
-    "components/*"
+    "components/*",
+    "packages/*"
   ],
   "keywords": [],
   "author": "The Art of Education University",
