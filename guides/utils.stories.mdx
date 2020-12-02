@@ -1,0 +1,60 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Packages/Utils" />
+
+# Shared Utils
+
+This is a small collection of JavaScript utility functions for reuse across projects.
+
+## Available functions and their use
+
+These are the utility functions that are available in this packaeg with a brief overview of their functionality and an example of their usage
+
+### `isEmpty`
+
+Returns `true` if the given argument evaluates to either `undefined`, `null` or an empty string (`""`), or in the case of an Array, when the given array's `length` attribute returns `0`.
+
+```js
+var foo = null
+
+isEmpty(foo) // <- true
+
+foo = undefined
+
+isEmpty(foo) // <- true
+
+foo = "bar"
+
+isEmpty(foo) // <- false
+
+foo = []
+
+isEmpty(foo) // <- true
+
+foo = ["bar"]
+
+isEmpty(foo) // <- false
+```
+
+### `isNotEmpty`
+
+Returns the inverse of the `isEmpty` function above. Literally returns `!isEmpty(arg)`.
+
+### `withWindow`
+
+Takes a single callback argument and provides the current `window` instance to the callback if it is available. This function is useful in Server-Side Render (SSR) environments where the browser `window` object may not always be available, and you wish to perform some functionality when it is available, but safely ignore it when it is not.
+
+```js
+withWindow(window => {
+  // do something here with the `window` object
+  // this function will NOT be executed when the `window` object is not available
+})
+```
+
+### `writeToClipboard`
+
+Takes a single argument (`content`) that will be written to the clipboard in browsers that support the `navigator.clipboard` interface.
+
+```js
+writeToClipboard("this is fun")
+```
