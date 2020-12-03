@@ -10,7 +10,8 @@
   "author": "The Art of Education University",
   "license": "MIT",
   "dependencies": {
-    "@aoeu/util": "^0.1.0"
+    "@aoeu/util": "^0.1.0",
+    "react-toastify": "^6.1.0"
   },
   "peerDependencies": {
     "react": "~17.0.0"
