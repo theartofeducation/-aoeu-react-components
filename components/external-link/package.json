@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/external-link",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "External Link Component - an anchor tag that will open its link in a new window or tab",
   "main": "index.js",
   "module": "dist/index.js",
