@@ -15,7 +15,10 @@ body {
   padding: 2rem !important;
 }
 
-.sbdocs-p, code {
+.sbdocs-p,
+.sbdocs-ul,
+.sbdocs-li,
+code {
   font-size: 1.125rem !important;
 }
 
