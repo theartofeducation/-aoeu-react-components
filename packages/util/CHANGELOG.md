@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.0 (2020-12-03)
+
+
+### Features
+
+* **ch55:** added a util package ([02cb5ea](https://github.com/theartofeducation/ui-common/commit/02cb5eac703772688c346e505d148a0d810bf96d))
+
+
+### Other
+
+* **release:** publish ([64d5bab](https://github.com/theartofeducation/ui-common/commit/64d5babc49709b131a1d1ef44c6647681fb0cfc5))
+
+
+
 ## 0.1.0 (2020-12-02)
 
 
