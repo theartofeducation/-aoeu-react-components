@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Packages/Packages Overview" />
+
+# Packages Overview
+
+Packages are different from components in that they're not react components, but rather they're artifacts that we wish to be shared across multiple other projects but maintained in one place. Typically this will be things like shared/common Sass modules, images or icons, and JavaScript logic that is common to multiple dependent projects (utilities, [React hooks](https://reactjs.org/docs/hooks-intro.html), etc). In this section, we'll cover how to create and maintain packages in the project, which is very similar to maintaining components, with a few minor differences.
+
+## Development
+
+The process for creating and maintaining _packages_ (as opposed to _components_) in the project is very similar to that for components, the process for which is fully documented in [the Components Overview document](/?path=/story/components-components-overview--page). For that reason, this document will refer to that as the overall definitive guide, and will focus primarily on the areas where the process is different.
+
+### Creating a new package
+
+For starters, the first significant difference is that packages will live in the `/packages` folder in the project (_not in_ the `/components` folder). This is a subtle but important organizational distinction.
+
+Once a folder has been created for the package, it will for the most part need all of the same files with a couple of possible exceptions:
+
+* `index.stories.js` - many packages will not be visual in nature, and therefore may not benefit from any Storybook stories. However, for the sake of documenting your package, Storybook supports the concept of writing [Docs Pages](https://storybook.js.org/docs/react/writing-docs/docs-page), and specifically supports authoring them with [MDX](https://storybook.js.org/docs/react/writing-docs/mdx). It would be encouraged for you to include a `<package-name>.stories.mdx` docs page to document the usage of the package, the documentation for which can then be viewed and read in this Style Guide UI with your package. This is an excellent way to document the package, and we strongly encourage it.
+* `styles.module.scss` - unless the package is specifically designed to provide Sass content to consumers (as is the case with the `@aoeu/sass-common` package, which already exists), a Sass module will often not be necessary with a package.
+
+### The `package.json` file
+
+Similar to the files in the package, the attributes present in the `package.json` file for a _package_ will largely remain the same as that of a component, but again, with a few minor exceptions.
+
+#### `dependencies` and `devDependencies`
+
+If the package does not require any external dependencies, these attributes can be omitted from the `package.json` file.
+
+#### `peerDependencies`
+
+Given that the package is will likely not depend on React (if it did, it would seem most likely that it would be a component, and should therefore live in the `/components` folder), the `react` peer dependency can be removed. The `peerDependencies` attribute may still need to remain in the file if the package requires other peer dependencies (say, perhaps something like [axios](https://github.com/axios/axios) or something of that nature), but if the package requires no peer dependencies at all, this attribute can be omitted from the `package.json` file.
+
+#### `scripts`
+
+If the package is a JavaScript based package, it will almost certainly need to have the same `prebuild` and `build` tasks defined in the `scripts` attribute, but in some cases where JavaScript bundling is not needed (i.e. `@aoeu/sass-common` or `@aoeu/logo-svgs`), the `scripts` attribute can be omitted.

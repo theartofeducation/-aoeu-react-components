@@ -1,0 +1,19 @@
+{
+  "name": "@aoeu/external-link",
+  "version": "0.0.1",
+  "description": "External Link Component - an anchor tag that will open its link in a new window or tab",
+  "main": "index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "~17.0.0"
+  },
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "webpack --config ../../webpack.config.js"
+  }
+}

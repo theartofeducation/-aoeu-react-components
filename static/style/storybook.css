@@ -1,3 +1,7 @@
+*+* {
+  box-sizing: border-box !important;
+}
+
 html,
 body {
   font-family: 'proxima-nova', 'Helvetica Neue', 'Helvetica', sans-serif !important;
@@ -11,7 +15,10 @@ body {
   padding: 2rem !important;
 }
 
-.sbdocs-p, code {
+.sbdocs-p,
+.sbdocs-ul,
+.sbdocs-li,
+code {
   font-size: 1.125rem !important;
 }
 
@@ -27,7 +34,12 @@ pre, pre code {
 .sbdocs-h6 {
   display: block !important;
   font-family: 'proxima-nova', 'Helvetica Neue', 'Helvetica', sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
+}
+
+.sbdocs-h2,
+.sbdocs-h3 {
+  margin: 2rem 0 !important;
 }
 
 .sbdocs-hr {

@@ -1,0 +1,16 @@
+{
+  "name": "@aoeu/util",
+  "version": "0.0.1",
+  "description": "Common JS utility functions",
+  "main": "index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "webpack --config ../../webpack.config.js"
+  }
+}

@@ -40,7 +40,7 @@ List.defaultProps = {
 }
 
 export const ListItem = ({ children, className }) => (
-  <li className={ clsx([styles.listItem, className])}>
+  <li className={clsx([styles.listItem, className])}>
     {children}
   </li>
 )

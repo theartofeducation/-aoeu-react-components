@@ -21,18 +21,24 @@ and themes.
 
 ## Consuming From Dependent Libraries and Projects
 
+Common Sass modules can be imported into your project by adding the `@aoeu/sass-common` package as a dependency
+
+```shell
+yarn add @aoeu/sass-common
+```
+
 Color variables can be imported for use use in your projects in the following ways.
 
 To import it into a Sass (`.scss` or `.sass`) file for use:
 
 ```scss
-@import "@aoeu/ui-common/sass/modules/colors";
+@import "@aoeu/sass-common/modules/colors";
 ```
 
 To import it into a JavaScript component or module, similarly:
 
 ```js
-import "@aoeu/ui-common/sass/modules/colors.scss"
+import "@aoeu/sass-common/modules/colors.scss"
 ```
 
 This will expose the full color palette in the CSS `:root` element as a
@@ -73,6 +79,10 @@ Which can then be referenced in your project's Sass/CSS using the native CSS
 ```
 
 > **NOTE**: When using the values below, most commonly it will be preferable to use the color variable name (`var(--color-aoeu-blue)`), so that if/when the actual hex code values of those color variables change, your project will automatically inherit the new value via the use of the color variable name, which should rarely ever need to change.
+
+<!-- -->
+
+> **TIP**: The hex color codes and custom property variables below can be clicked on to be copied to your clipboard for pasting into your project's code.
 
 ## AOEU Brand Colors
 
