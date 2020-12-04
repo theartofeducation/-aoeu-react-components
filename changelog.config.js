@@ -3,7 +3,7 @@ const config = require("conventional-changelog-conventionalcommits")
 module.exports = config({
   types: [
     { type: "build", hidden: true },
-    { type: "chore", section: "Other" },
+    { type: "chore", hidden: true },
     { type: "ci", hidden: true },
     { type: "docs", section: "Documentation" },
     { type: "feature", section: "Features" },
