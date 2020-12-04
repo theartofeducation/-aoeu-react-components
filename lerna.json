@@ -7,6 +7,9 @@
   "npmCLient": "yarn",
   "changelogPreset": "./changelog.config.js",
   "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    },
     "version": {
       "message": "chore(release): publish",
       "allowBranch": ["main"]
