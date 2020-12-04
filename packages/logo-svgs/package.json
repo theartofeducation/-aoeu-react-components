@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/logo-svgs",
-  "version": "0.1.3",
+  "version": "0.0.1",
   "description": "The Art of Education University Logos in SVG format",
   "main": "aoeu-logo-horizontal.svg",
   "files": [
