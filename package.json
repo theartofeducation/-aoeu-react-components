@@ -11,7 +11,7 @@
     "test": "jest",
     "storybook": "start-storybook -s ./static -p 6006",
     "sb": "yarn run storybook",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -s ./static",
     "bootstrap": "lerna bootstrap",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
