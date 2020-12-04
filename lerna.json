@@ -11,7 +11,7 @@
       "message": "chore(release): publish"
     },
     "publish": {
-      "registry": "https://localhost:7890"
+      "registry": "https://registry.npmjs.org/"
     }
   }
 }

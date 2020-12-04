@@ -130,11 +130,37 @@ You can read more about how yarn workspaces work in [the yarn documentation here
 
 ### Versioning
 
-TODO
+```shell
+yarn run version
+```
+
+The management of package versioning in the project is simplified by the use of a combination of [commitlint](https://commitlint.js.org/), [husky](https://typicode.github.io/husky/) and Lerna. Husky allows us to ensure that commitlint is run in a `commit-msg` git hook that validates the structure and format of our commit messages, and ensures that they conform to a specifically formatted standard. Ensuring that commits are formatted properly, allows automated tools like Lerna derive the types of changes that were made since the previous time a version was applied to a package, which gives it the ability to intelligently determine how to increment the version of the package, as well as update the packages `CHANGELOG.md` file.
+
+Running `yarn run version` will run `lerna version --conventional-commits`. Running this command tells lerna to iterate through all of the components and packages in the project, determine whether or not changes have been made, and increment the package version and update its `CHANGELOG.md` file accordingly.
+
+In the course of running this command, you will be prompted by Lerna. The prompt will include information about all of the packages that will be updated, including the version that the package is being bumped both _from_ and _to_. This will afford you the opportunity to cancel out if you feel it is incrementing the version of a package inaccurately, and make any necessary changes and try it again. When you are agreeable to the changes that it proposes and select `yes` and allow it to make the changes, Lerna will perform the following actions:
+
+* Update the `version` attribute in the `package.json` file of each component/package that needs updated.
+* Update the `CHANGELOG.md` file with details of all of the changes being committed to each component/package.
+* Apply a tag to the repository for each component/package that is being updated with information about the new version of the package.
+
+In lieu of making any changes to your git history or modifying existing commits, if you want to force a specific version incrementation, you can pass arguments to the `version` task to specify which version segment to increment specifically. If Lerna attempts to update the version with an updated minor version, and you wish instead to only increment the patch segment of the version, you can explicity pass the `patch` option to the command:
+
+```shell
+yarn run version patch
+```
+
+> **NOTE**: This will apply a `patch` increment to ALL packages that Lerna is attempting to update.
+
+Additional details about other options available for running the `lerna version` command can be found in [the documentation for the command](https://github.com/lerna/lerna/tree/main/commands/version#readme) in the Lerna GitHub repository.
 
 ### Publishing
 
-TODO
+```shell
+yarn run publish
+```
+
+Publishing packages from the project can be accomplished by running the `yarn run publish` task, which runs the `lerna publish from-package` command. With this command, Lerna will check the latest version of each package that has been deployed to the registry, and compare it to the current version of the package, and for any package where a newer version exists locally, it will prompt you asking if you wish to publish this new version of the package. If you agree and select `yes`, Lerna will handle publishing each of these packages to the configured package registry (npm).
 
 ### Storybook
 
