@@ -7,8 +7,8 @@ import clsx from "clsx"
  */
 export const ExternalLink = ({ url, className, children }) => (
   <a
-    href={ url }
-    className={ clsx([className])}
+    href={url}
+    className={clsx([className])}
     target="_blank"
     rel="noreferrer">
     {children}
