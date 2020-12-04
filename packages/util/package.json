@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/util",
-  "version": "0.3.0",
+  "version": "0.0.1",
   "description": "Common JS utility functions",
   "main": "index.js",
   "module": "dist/index.js",

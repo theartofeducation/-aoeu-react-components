@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/logos",
-  "version": "0.1.3",
+  "version": "0.0.1",
   "description": "AOEU Logo Components",
   "main": "index.js",
   "module": "dist/index.js",
