@@ -128,6 +128,10 @@ By using yarn workspaces, adding and managing dependencies at both the project a
 
 You can read more about how yarn workspaces work in [the yarn documentation here](https://classic.yarnpkg.com/en/docs/workspaces/).
 
+### Bootstrapping
+
+It will be important, especially during the course of local development, to ensure that you run the `yarn bootstrap` task, which runs the `lerna bootstrap` command. This is important because Lerna will handle the arduous and maddening task of iterating through each of the component/package folders in the project, inspecting their cross-dependencies, and handle running all of the necessary `yarn link` commands so that those cross-package dependencies resolve for you properly during local development. [Additional details and guidelines for how the `lerna boostrap` command works can be found in its documentation](https://github.com/lerna/lerna/tree/main/commands/bootstrap#readme).
+
 ### Versioning
 
 ```shell
