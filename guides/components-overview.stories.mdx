@@ -48,6 +48,9 @@ Packages in a monorepo that are intended to be published and consumed by depende
   ],
   "author": "The Art of Education University",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@aoeu/util": "^0.3.0"
   },
@@ -103,6 +106,10 @@ If/when necessary and public contributions get submitted to the repository, a `c
 #### `license`
 
 In the vast majority of cases, we wish to share our packages with the Open Source community, and as such the `license` attribute should nearly always be set to `MIT`, and the `LICENSE` file in the package folder should match this. In select cases where a package contains artifacts that have intellectual property rights owned by The Art of Education University (i.e. our `@aoeu/logo-svgs` and `@aoeu/logos` packages), a different, more IP specific value can and should be specified.
+
+#### `publishConfig` => `access`
+
+It's important to include the `publishConfig` attribute, with a child `access` attribute with a value set to `public`, as this instructs the npm CLI to allow us to publish our components and packages scoped to the `@aoeu` org on the npm registry, and allow them to be publicly accessible. Most commonly scoped packages published to the npm registry are private, which requires paying npm for private package hosting. This attribute allows us to publish to a scope, but not have the packages be private, which is what we want.
 
 #### `dependencies` and `devDependencies`
 
