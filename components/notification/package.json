@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/notification",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Notification Components for rendering UI notifications (toast style)",
   "main": "index.js",
   "module": "dist/index.js",
@@ -10,7 +10,7 @@
   "author": "The Art of Education University",
   "license": "MIT",
   "dependencies": {
-    "@aoeu/util": "^0.0.1",
+    "@aoeu/util": "^0.1.0",
     "react-toastify": "^6.1.0"
   },
   "peerDependencies": {

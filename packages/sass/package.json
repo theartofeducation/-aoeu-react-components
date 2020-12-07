@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/sass-common",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Common/Shared Sass stylesheets",
   "main": "main.scss",
   "files": [
