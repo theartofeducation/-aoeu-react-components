@@ -1,3 +1,7 @@
+// this code was adapted from examples found in the following issue on
+// how to sort stories, from the Storybook GitHub repository issues:
+// https://github.com/storybookjs/storybook/issues/548#issuecomment-660354226
+
 const hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key)
 const compareAlphabetical = (a, b) => a.localeCompare(b, { numeric: true })
 
@@ -56,6 +60,9 @@ const storiesOrder = {
     colors: null,
     typography: null,
     logos: null
+  },
+  packages: {
+    "packages overview": null
   },
   components: {
     "components overview": null,

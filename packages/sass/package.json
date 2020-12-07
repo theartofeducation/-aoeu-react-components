@@ -1,0 +1,14 @@
+{
+  "name": "@aoeu/sass-common",
+  "version": "0.0.1",
+  "description": "Common/Shared Sass stylesheets",
+  "main": "main.scss",
+  "files": [
+    "**/*.scss"
+  ],
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "peerDependencies": {
+    "sass": "^1.27.1"
+  }
+}

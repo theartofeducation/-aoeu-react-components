@@ -17,9 +17,9 @@ module.exports = {
   },
   plugins: ["@babel", "react", "jsx-a11y", "import", "jest"],
   env: {
-    browser: true,
-    es6: true,
-    node: true,
+    "browser": true,
+    "es6": true,
+    "node": true,
     "jest/globals": true
   },
   settings: {
@@ -27,6 +27,9 @@ module.exports = {
       version: "detect"
     }
   },
+  ignorePatterns: [
+    "**/dist/*.js"
+  ],
   rules: {
     "max-len": ["warn", { "code": 100 }],
     "semi": ["error", "never"],

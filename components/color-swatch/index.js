@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import clsx from "clsx"
 import { Icon } from "../icons"
 import { notify } from "../notification"
-import { writeToClipboard } from "../../util"
+import { writeToClipboard } from "@aoeu/util"
 import styles from "./styles.module.scss"
 
 const copyToClipboard = async content => {

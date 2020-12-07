@@ -1,0 +1,22 @@
+{
+  "name": "@aoeu/logos",
+  "version": "0.0.1",
+  "description": "AOEU Logo Components",
+  "main": "index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "dependencies": {
+    "@aoeu/logo-svgs": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "~17.0.0"
+  },
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "webpack --config ../../webpack.config.js"
+  }
+}

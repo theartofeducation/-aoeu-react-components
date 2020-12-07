@@ -1,8 +1,161 @@
 import { Meta } from "@storybook/addon-docs/blocks"
-import { ExternalLink } from "../components/external-link"
 
 <Meta title="Components/Components Overview" />
 
 # Components Overview
 
-At present our component library is built with [React](https://reactjs.org/).
+At present our component library is built with [React](https://reactjs.org/). The components in this collection are maintained and published as a [monorepo](https://en.wikipedia.org/wiki/Monorepo), so the individual packages are consumable as standalone resources from [the npm registry](https://www.npmjs.com/org/aoeu) typically as `@aoeu/<COMPONENT_NAME>`. So, to add one of them as a dependency to your project, you would run:
+
+```shell
+yarn add @aoeu/<COMPONENT_NAME>
+```
+
+Each individual component _should be_ documented with examples in this section of the Style Guide, so you should be able to get a clear understanding of what they look like, what props are available to them and how to use them in the stories available for each component.
+
+## Development
+
+How to create and maintain components in the project.
+
+### Creating a new component
+
+To create a new component, create a folder in the `components` folder with a name that either matches or closely resembles the name of the component or collection of related components that you're creating. For example, the `@aoeu/list` package actually exports both a `List` component as well as a `ListItem` component, but for the sake of naming, we simply call it `list`, and it lives in `./components/list`.
+
+In this folder, you need to create the following files:
+
+* `package.json` - this will contain all of the details that define the component package, and we'll discuss this in greater detail below
+* `index.js` - The main entry point file for the component.
+* `index.test.js` - Tests for the component ... only in rare cases will a component _not_ need to have tests. Gotta have them tests.
+* `index.stories.js` - Storybook story definitions for the component. You can look at example stories from other components in the project, including stories in the `stories` folder, which are the default examples that ship with Storybook. The stories are important, because they both document and demonstrate the behavior of the component. You can find more information on writing stories for components in [the Storybook documentation](https://storybook.js.org/docs/react/writing-stories/introduction).
+* `LICENSE` - The license file for the component. Most of our components are MIT licensed, and you should be able to just copy one of the LICENSE files from another component into the new component folder unless for some reason it needs to be changed.
+* `README.md` - The README for the component, which will typically contain the name of the package, and at very least a brief overview of the functionality the component provides, and in some cases, it may need to be more fully documented.
+* `styles.module.scss` (optional) - If your component requires any kind of styling, it will need a styles module. It is important for this file to have the `.module.scss` extension, as the build for the project is configured to use CSS Modules to help prevent style naming collisions, and the configuration uses this naming convention to enable the modulare generation of styles for the component.
+* `CHANGELOG.md` (optional) - When you are creating a new component, you _can_ create this file and leave it empty if you wish, but it is not necessary to do so. When the `version` task is run at the project level, and Lerna iterates through each package to increment it's version, it will also handle updating the `CHANGELOG.md` file if it exists, and it will create one if one does not exist.
+* In some cases, you will need additional files to support the implementation of the component, and that is fine, but this it the minimal, base set of files that you will need for a component.
+
+### The `package.json` file
+
+Packages in a monorepo that are intended to be published and consumed by dependent projects are unique and as a result have special requirements for how they have to be defined in the `package.json` file. The `package.json` file for your component should typically resemble something very close to this:
+
+```json
+{
+  "name": "@aoeu/<PACKAGE-NAME>",
+  "version": "0.1.3",
+  "description": "A brief description of the component",
+  "main": "index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "author": "The Art of Education University",
+  "license": "MIT",
+  "dependencies": {
+    "@aoeu/util": "^0.3.0"
+  },
+  "peerDependencies": {
+    "react": "~17.0.0"
+  },
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "webpack --config ../../webpack.config.js"
+  }
+}
+```
+
+Let's take a closer look at each of these properties, the purpose they serve, and why they are important in the context of a standalone package in a monorepo that is maintained for publishing and consumption by other projects.
+
+#### `name`
+
+This uniquely identifies the package. It must be unique, as if you attempt to publish the package to the npm registry, and a package with the same name already exists, publishing will fail. It is also important to note the use of the prepended `@aoeu` scope here. This also help prevent naming collisions with commonly named components. Distinct from a package called `button`, which likely [already exists](https://www.npmjs.com/package/button) within the [npm registry](https://www.npmjs.com/), prepending the package name with the `@aoeu` scope allows us to publish this package within the context of our organization on npm.
+
+#### `version`
+
+The `version` attribute uniquely identifies different versions of a package that are available for consumption on the npm registry. This is a critical part of the maintenance of packages because it allows for the availability and consumption of different versions of a package by different consumers that may or may not wish or choose to upgrade in cases where we may introduce breaking changes to a package. You should rarely have need to change the value of this property, as it is maintained and updated automatically by Lerna when we run the `version` task in the project.
+
+#### `description`
+
+The description is not critical, but it does provide a useful, brief overview of the purpose and function of the component when its details are viewed on the npm registry, and when commands like `yarn info <package-name>` are run.
+
+#### `main`
+
+The `main` attribute identifies the main entry point file for the component. In most cases, this will be where the component will be defined and exported. By convention, it should nearly always be left as `index.js`.
+
+#### `module`
+
+The `module` attribute is where things get a little bit weird, but is also where the magic happens here. You will not (yet) find this attribute in the official `package.json` documentation by either [npm](https://docs.npmjs.com/cli/v6/configuring-npm/package-json) or [node.js](https://nodejs.dev/learn/the-package-json-guide), because it is part of [a proposal for using metadata in `package.json` files](https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md) to help identify how modular JavaScript can be consumed. However, the use of this metadata has been widely adopted by the major module bundlers ([webpack](https://webpack.js.org/) and [rollup](https://www.rollupjs.org/guide/en/)). We use webpack for bundling our package assets, and it has [documented the use of this attribute](https://webpack.js.org/guides/author-libraries/#final-steps) as an appropriate means of identifying which file in a distributed package should be consumed when imported by dependent modules. Our webpack build configuration places the bundled output of its builds in `dist/index.js` in the package folder, and this is also included in the package archive that is published to the npm registry, so the value of the `module` attribute in the component's `package.json` file should almost always be set to `dist/index.js`.
+
+#### `files`
+
+While not nearly as important as the `module` attribute, the `files` array is an important one, as it also more officially identifies files and file patterns that describe entries to be included when the package is installed as a dependency by consumers. More information on what this is used for can be found in [the npm `package.json` documentation](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#files). For most components, this should typically just include a single entry for `dist/index.js`, but in rare cases, you may wish to include other assets, such as images files that may need to be available for use by the package, etc.
+
+#### `author`
+
+The `author` attribute should always be set to "The Art of Education University." Alternately, it could also be defined more granularly as:
+
+```json
+"author": {
+  "name": "The Art of Education University",
+  "url": "https://theartofeducation.github.io"
+}
+```
+
+If/when necessary and public contributions get submitted to the repository, a `contributors` attribute can be added with an array of contributors to the package.
+
+#### `license`
+
+In the vast majority of cases, we wish to share our packages with the Open Source community, and as such the `license` attribute should nearly always be set to `MIT`, and the `LICENSE` file in the package folder should match this. In select cases where a package contains artifacts that have intellectual property rights owned by The Art of Education University (i.e. our `@aoeu/logo-svgs` and `@aoeu/logos` packages), a different, more IP specific value can and should be specified.
+
+#### `dependencies` and `devDependencies`
+
+`dependencies` and `devDependencies` are exactly what you would expect. Some packages may require dependencies, other may stand alone with no dependencies at all. Very few should require any kind of `devDependencies` in general, as most of that is handled at the project level, and not the package level.
+
+Adding new dependencies (and dev dependencies) makes use of the workspaces feature in yarn. When you wish to add a new dependency at the _project_ level (not specific to a package), you have to pass the `-W` flag to the yarn command. For example, if you wanted to add `eslint` as a dev dependency to the project, you would run:
+
+```shell
+yarn add -D -W eslint
+```
+
+If you need to add a dependency to a specific component/package in the project, you need to specify the workspace that you wish to add the dependency to in the command. For example, if you wanted to add the `@material-ui/data-grid` package to one of your component packages, from the root of the project you would run:
+
+```shell
+yarn workspace @aoeu/some-component add @material-ui/data-grid
+```
+
+Alternately, you could also switch into the folder for the specific component or package that you wish to add it to, and just run the `yarn add` command without specifying the workspace:
+
+```shell
+cd components/some-component
+yarn add @material-ui/data-grid
+```
+
+By using yarn workspaces, adding and managing dependencies at both the project and package level can be optimized, as yarn knows how to maintain the `yarn.lock` file and the overall collection of dependencies for the project in a single `node_modules` folder in the root of the project, rather than maintaining them individually in each component or package folder.
+
+You can read more about how yarn workspaces work in [the yarn documentation here](https://classic.yarnpkg.com/en/docs/workspaces/).
+
+#### `peerDependencies`
+
+In some cases, `peerDependencies` will not be necessary (i.e. `@aoeu/sass-common` and `@aoeu/util`). However, for most of them, and specifically for React components, you will need to have a `peerDependency` defined for React.
+
+```json
+"peerDependencies": {
+  "react": "~17.0.0"
+}
+```
+
+This serves the primary purpose of letting consumers know, when the package is installed, that it will need to have React included as a dependency, because the component uses it, but the React library _itself_ is _NOT_ included in the component's bundled output that the consumer is using. The webpack build for the overall project that is responsible for bundling the component output for distribution and consumption is configured to _NOT_ include the React library in the bundled output (for bundle size reasons).
+
+#### `scripts`
+
+For the majority of the components and packages in the project overall, you will need to have at least two `scripts` defined in the `package.json` file:
+
+```json
+"scripts": {
+  "prebuild": "rm -rf ./dist",
+  "build": "webpack --config ../../webpack.config.js"
+}
+```
+
+These scripts are used and referenced and used in the main project's `prepublishOnly` task, which is run prior to the `publish` task being run, and it executes `lerna run build`, which iterates through each of the configured components/packages and runs the `build` task configured in the package. Each package needs to be configured to run webpack using the shared `webpack.config.js` file, which bundles the component/package output for use by consumers.
+
+The `prebuild` task uses a convention with npm scripts, and by prefixing the `build` script name with `pre`, this task will always be run _before_ the `build` task is run. In this case, it simply deletes the local `dist` folder if it exists, cleaning up any existing artifact from previous builds.
+
+In the case of components or packages that don't contain JavaScript sources or that for whatever reason don't need to be bundled with webpack (i.e. `@aoeu/sass-common` or `@aoeu/logo-svgs`), these scripts can be omitted.

@@ -2,8 +2,11 @@ const conventionalConfig = require("@commitlint/config-conventional")
 const { rules: defaultRules } = conventionalConfig
 
 /**
- * Extend "@commitlint/config-conventional" with two adjustments to
- * types allowed: change "feat" to "feature", and add "wip"
+ * Extend "@commitlint/config-conventional" with adjustments to
+ * types allowed:
+ * -- change "feat" to "feature"
+ * -- change "perf" to "performance"
+ * -- add "wip"
  */
 module.exports = Object.assign({}, conventionalConfig, {
   rules: Object.assign({}, defaultRules, {
@@ -14,7 +17,7 @@ module.exports = Object.assign({}, conventionalConfig, {
       "docs",
       "feature",
       "fix",
-      "perf",
+      "performance",
       "refactor",
       "revert",
       "style",

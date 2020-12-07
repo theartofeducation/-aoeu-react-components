@@ -4,10 +4,16 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 # Typography
 
-At The Art of Education University, our primary typefaces for web projects are Proxima Nova and Chaparral Pro. In most cases, using these typefaces for your project should be fairly simple with the use of a Sass `@import` statement in your primary stylesheet:
+At The Art of Education University, our primary typefaces for web projects are Proxima Nova and Chaparral Pro. In most cases, using these typefaces for your project should be fairly simple with the use of a Sass `@import` statement in your primary stylesheet, but first, you will need to add our Sass common package as a dependency to your project:
+
+```shell
+yarn add @aoeu/sass-common
+```
+
+Once you've added that dependency, then you can import the `typography` module to get all of our typography settings applied in your application.
 
 ```scss
-@import "@aoeu/ui-common/sass/modules/typography";
+@import "@aoeu/sass-common/modules/typography";
 ```
 
 If this turns out to be insufficient or if you need more low-level control over loading it, in the core library this is just importing the TypeKit URL that loads our typeface for using in our styles, and you can do similarly with a direct import of our TypeKit URL:

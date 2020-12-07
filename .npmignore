@@ -1,0 +1,11 @@
+# env files
+.env
+.DS_Store
+
+node_modules
+storybook-static
+stories
+guides
+.github
+.storybook
+*-error.log
