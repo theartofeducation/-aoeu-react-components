@@ -9,6 +9,9 @@
   ],
   "author": "The Art of Education University",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@aoeu/logo-svgs": "^0.0.1"
   },

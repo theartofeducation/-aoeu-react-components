@@ -9,6 +9,9 @@
   ],
   "author": "The Art of Education University",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "webpack --config ../../webpack.config.js"
