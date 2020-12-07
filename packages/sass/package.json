@@ -8,6 +8,9 @@
   ],
   "author": "The Art of Education University",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "sass": "^1.27.1"
   }
