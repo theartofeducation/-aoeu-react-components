@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/notification",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Notification Components for rendering UI notifications (toast style)",
   "main": "index.js",
   "module": "dist/index.js",
@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@aoeu/util": "^0.1.0",
+    "@aoeu/util": "^0.1.1",
     "react-toastify": "^6.1.0"
   },
   "peerDependencies": {

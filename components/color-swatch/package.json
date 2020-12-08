@@ -2,8 +2,8 @@
   "private": true,
   "name": "@aoeu/color-swatch",
   "description": "Color Swatch component used for Storybook / Style Guide documentation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
-    "@aoeu/util": "^0.1.0"
+    "@aoeu/util": "^0.1.1"
   }
 }

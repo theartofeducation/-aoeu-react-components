@@ -1,6 +1,6 @@
 {
   "name": "@aoeu/logos",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AOEU Logo Components",
   "main": "index.js",
   "module": "dist/index.js",
@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@aoeu/logo-svgs": "^0.1.0"
+    "@aoeu/logo-svgs": "^0.1.1"
   },
   "peerDependencies": {
     "react": "~17.0.0"
