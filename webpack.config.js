@@ -3,7 +3,8 @@ module.exports = {
   output: {
     filename: "index.js",
     library: "aoeu-ui-common",
-    libraryTarget: "umd"
+    libraryTarget: "umd",
+    globalObject: "this"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
