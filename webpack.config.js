@@ -4,7 +4,7 @@ module.exports = {
     filename: "index.js",
     library: "aoeu-ui-common",
     libraryTarget: "umd",
-    globalObject: "this"
+    globalObject: "this" // "typeof self !== 'undefined' ? self : this"
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
