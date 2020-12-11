@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { List, ListItem } from "../list"
+import { List, ListItem } from "@aoeu/list"
 import { ColorSwatch, GradientSwatch } from "../color-swatch"
 import styles from "./styles.module.scss"
 

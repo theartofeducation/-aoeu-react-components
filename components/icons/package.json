@@ -2,10 +2,11 @@
   "name": "@aoeu/icons",
   "version": "0.0.1",
   "description": "SVG Icon Components",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "dist/index.js"
+    "dist/*.js",
+    "dist/*.map"
   ],
   "author": "The Art of Education University",
   "license": "MIT",
