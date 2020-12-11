@@ -17,6 +17,6 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
+    "build": "rollup --config ../../rollup.config.js"
   }
 }

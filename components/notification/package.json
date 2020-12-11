@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@aoeu/util": "^0.0.1",
+    "@babel/runtime": "^7.12.5",
     "react-toastify": "^6.1.0"
   },
   "peerDependencies": {
@@ -21,6 +22,6 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
+    "build": "rollup --config ../../rollup.config.js"
   }
 }
