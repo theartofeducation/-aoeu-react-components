@@ -4,8 +4,7 @@
   "description": "Common JS utility functions",
   "main": "dist/index.js",
   "files": [
-    "dist/index.js",
-    "dist/index.js.map"
+    "dist/index.js"
   ],
   "author": "The Art of Education University",
   "license": "MIT",

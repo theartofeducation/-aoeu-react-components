@@ -76,7 +76,7 @@ module.exports = {
   optimization: {
     minimize: !development
   },
-  devtool: "source-map",
+  devtool: development ? "source-map" : "none",
   stats: {
     children: false,
     modules: false
