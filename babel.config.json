@@ -4,15 +4,15 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "current"
-        }
+          "node": "current",
+          "esmodules": true
+        },
+        "bugfixes": true
       }
-    ]
+    ],
+    "@babel/react"
   ],
   "plugins": [
-      "@babel/plugin-transform-react-jsx",
-      "@babel/plugin-syntax-jsx"
-    ]
-  }
-  
-  
+    "transform-react-remove-prop-types"
+  ]
+}

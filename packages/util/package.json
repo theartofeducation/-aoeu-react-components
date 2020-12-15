@@ -2,18 +2,14 @@
   "name": "@aoeu/util",
   "version": "0.0.1",
   "description": "Common JS utility functions",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
-    "dist/index.js"
+    "dist/index.js",
+    "dist/index.js.map"
   ],
   "author": "The Art of Education University",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
   }
 }

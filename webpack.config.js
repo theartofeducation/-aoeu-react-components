@@ -1,14 +1,15 @@
+const babelConfig = require("./babel.config.json")
+const development = process.env.NODE_ENV !== "production"
+
 module.exports = {
   entry: "./index.js",
   output: {
     filename: "index.js",
-    library: "aoeu-ui-common",
     libraryTarget: "umd",
     globalObject: "this"
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
-    modules: ["node_modules"]
+    extensions: [".js", ".jsx", ".json"]
   },
   module: {
     rules: [
@@ -19,12 +20,7 @@ module.exports = {
         ],
         use: {
           loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/react"
-            ]
-          }
+          options: babelConfig
         }
       },
       {
@@ -61,7 +57,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [],
   externals: {
     "react": {
       root: "React",
@@ -78,6 +73,10 @@ module.exports = {
       umd: "react-dom"
     }
   },
+  optimization: {
+    minimize: !development
+  },
+  devtool: "source-map",
   stats: {
     children: false,
     modules: false
