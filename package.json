@@ -9,13 +9,18 @@
     "eslint": "eslint --ext .js --ext .jsx stories components",
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"**/node_modules/**\" --ignore \"**/CHANGELOG.md\"",
     "test": "jest",
+    "linkall": "lerna exec -- yarn link",
+    "unlinkall": "lerna exec -- yarn unlink",
+    "clean": "lerna exec -- rm -rf {dist,node_modules}",
+    "prebuild": "yarn run clean",
+    "build": "lerna exec -- webpack --config ../../webpack.config.js",
     "storybook": "start-storybook -s ./static -p 6006",
     "sb": "yarn run storybook",
     "build-storybook": "build-storybook -s ./static",
     "bootstrap": "lerna bootstrap",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
-    "prepublishOnly": "lerna run build"
+    "prepublishOnly": "yarn run build"
   },
   "repository": {
     "type": "git",
@@ -59,6 +64,7 @@
     "@testing-library/react": "^11.1.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "conventional-changelog-conventionalcommits": "^4.5.0",
     "css-loader": "^5.0.0",
     "eslint": "^7.13.0",
@@ -81,7 +87,7 @@
     "standard-version": "^9.0.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.5.0",
+    "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0"
   },
   "husky": {

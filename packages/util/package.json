@@ -2,8 +2,7 @@
   "name": "@aoeu/util",
   "version": "0.1.1",
   "description": "Common JS utility functions",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
@@ -11,9 +10,5 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
   }
 }

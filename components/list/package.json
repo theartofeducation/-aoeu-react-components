@@ -2,8 +2,7 @@
   "name": "@aoeu/list",
   "version": "0.1.1",
   "description": "List and ListItem Components for rendering unordered lists",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
@@ -14,9 +13,5 @@
   },
   "peerDependencies": {
     "react": "~17.0.0"
-  },
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
   }
 }

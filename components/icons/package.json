@@ -2,8 +2,7 @@
   "name": "@aoeu/icons",
   "version": "0.1.1",
   "description": "SVG Icon Components",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/index.js"
   ],
@@ -14,9 +13,5 @@
   },
   "peerDependencies": {
     "react": "~17.0.0"
-  },
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
   }
 }
