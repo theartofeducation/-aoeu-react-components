@@ -39,7 +39,8 @@
   },
   "homepage": "https://github.com/theartofeducation/ui-common#readme",
   "dependencies": {
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -65,6 +66,7 @@
     "@testing-library/react": "^11.1.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
+    "babel-plugin-styled-components": "^1.12.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "conventional-changelog-conventionalcommits": "^4.5.0",
     "css-loader": "^5.0.0",
@@ -90,6 +92,9 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "husky": {
     "hooks": {

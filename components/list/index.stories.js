@@ -1,5 +1,5 @@
 import React from "react"
-import { List, ListItem } from "./"
+import { List, ListItem } from "./index"
 
 export default {
   title: "Components/List",
@@ -7,7 +7,7 @@ export default {
 }
 
 const Template = args => (
-  <List {...args.listProps} style={{ border: "1px dashed #eee" }}>
+  <List {...args.listProps}>
     <ListItem>{args.items[0]}</ListItem>
     <ListItem>{args.items[1]}</ListItem>
     <ListItem>{args.items[2]}</ListItem>

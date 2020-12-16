@@ -1,41 +1,65 @@
 import React from "react"
 import PropTypes from "prop-types"
-import clsx from "clsx"
-import styles from "./styles.module.scss"
+import styled from "styled-components"
 
 /**
  * Renders an unstyled unordered list <ul> element (no list style)
  */
 export const List = ({
   children,
-  className,
   orientation,
   trimmed
 }) => {
-  const classes = clsx([
-    styles.list,
-    styles[orientation],
-    trimmed && styles.trimmed,
-    className
-  ])
+  // const classes = clsx([
+  //   styles.list,
+  //   styles[orientation],
+  //   trimmed && styles.trimmed,
+  //   className
+  // ])
+  const alignment = {
+    left: "start",
+    right: "flex-end",
+    centered: "center"
+  }
+
+  let StyledList = styled.ul`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: ${alignment[orientation]};
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  `
+
+  if (trimmed) {
+    StyledList = styled(StyledList)`
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    `
+  }
 
   return (
-    <ul className={classes}>
+    <StyledList>
       {children}
-    </ul>
+    </StyledList>
   )
 }
 
 List.propTypes = {
+  /**
+   * List content
+   */
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
     PropTypes.object
   ]),
-  /**
-   * Optional style class
-   */
-  className: PropTypes.string,
   /**
    * Optional list orientation (alignment). Valid options are "left", "right" or "centered".
    */
@@ -51,13 +75,17 @@ List.defaultProps = {
   trimmed: true
 }
 
+const StyledListItem = styled.li`
+  margin: 0.75rem;
+`
+
 /**
  * Renders a list item <li> element
  */
-export const ListItem = ({ children, className }) => (
-  <li className={clsx([styles.listItem, className])}>
+export const ListItem = ({ children }) => (
+  <StyledListItem>
     {children}
-  </li>
+  </StyledListItem>
 )
 
 ListItem.propTypes = {
@@ -68,9 +96,5 @@ ListItem.propTypes = {
     PropTypes.node,
     PropTypes.element,
     PropTypes.object
-  ]),
-  /**
-   * Optional style class
-   */
-  className: PropTypes.string
+  ])
 }
