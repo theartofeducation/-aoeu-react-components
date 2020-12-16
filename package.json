@@ -20,7 +20,8 @@
     "bootstrap": "lerna bootstrap",
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "postpublish": "yarn run unlinkall"
   },
   "repository": {
     "type": "git",
