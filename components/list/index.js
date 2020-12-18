@@ -2,20 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-/**
- * Renders an unstyled unordered list <ul> element (no list style)
- */
-export const List = ({
-  children,
-  orientation,
-  trimmed
-}) => {
-  // const classes = clsx([
-  //   styles.list,
-  //   styles[orientation],
-  //   trimmed && styles.trimmed,
-  //   className
-  // ])
+const getStyledList = ({ orientation, trimmed }) => {
   const alignment = {
     left: "start",
     right: "flex-end",
@@ -34,15 +21,30 @@ export const List = ({
 
   if (trimmed) {
     StyledList = styled(StyledList)`
-      &:first-child {
-        margin-left: 0;
-      }
+      > li {
+        &:first-child {
+          margin-left: 0;
+        }
 
-      &:last-child {
-        margin-right: 0;
+        &:last-child {
+          margin-right: 0;
+        }
       }
     `
   }
+
+  return StyledList
+}
+
+/**
+ * Renders an unstyled unordered list &lt;ul&gt; element (no list style)
+ */
+export const List = ({
+  children,
+  orientation,
+  trimmed
+}) => {
+  const StyledList = getStyledList({ orientation, trimmed })
 
   return (
     <StyledList>
@@ -80,7 +82,7 @@ const StyledListItem = styled.li`
 `
 
 /**
- * Renders a list item <li> element
+ * Renders a list item &lt;li&gt; element
  */
 export const ListItem = ({ children }) => (
   <StyledListItem>

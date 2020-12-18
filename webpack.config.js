@@ -56,6 +56,14 @@ const moduleConfig = {
   ]
 }
 
+const resolve = {
+  alias: {
+    "react": "../theartofeducation.io/node_modules/react",
+    "react-dom": "../theartofeducation.io/node_modules/react-dom",
+    "styled-components": "../theartofeducation.io/node_modules/styled-components"
+  }
+}
+
 const externals = {
   "react": {
     root: "React",
@@ -70,6 +78,13 @@ const externals = {
     commonjs: "react-dom",
     amd: "react-dom",
     umd: "react-dom"
+  },
+  "styled-components": {
+    root: "styled-components",
+    commonjs2: "styled-components",
+    commonjs: "styled-components",
+    amd: "styled-components",
+    umd: "styled-components"
   }
 }
 
@@ -86,6 +101,7 @@ module.exports = Object.assign({}, {
   entry,
   output,
   module: moduleConfig,
+  resolve,
   externals,
   optimization,
   stats,

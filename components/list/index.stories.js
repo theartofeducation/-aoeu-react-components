@@ -1,10 +1,15 @@
 import React from "react"
 import { List, ListItem } from "./index"
+import styled from "styled-components"
 
 export default {
   title: "Components/List",
   component: List
 }
+
+const StyledStoryList = styled(List)`
+  border: 1px solid #eee;
+`
 
 const Template = args => (
   <List {...args.listProps}>
