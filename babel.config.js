@@ -1,5 +1,5 @@
-{
-  "presets": [
+module.exports = {
+  presets: [
     [
       "@babel/preset-env",
       {
@@ -12,9 +12,9 @@
     ],
     "@babel/react"
   ],
-  "env": {
-    "production": {
-      "plugins": [
+  env: {
+    production: {
+      plugins: [
         ["transform-react-remove-prop-types", { "mode": "wrap" }]
       ]
     }

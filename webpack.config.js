@@ -1,4 +1,5 @@
-const babelConfig = require("./babel.config.json")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const babelConfig = require("./babel.config.js")
 const production = process.env.NODE_ENV === "production"
 
 const entry = "./index.js"
@@ -9,68 +10,76 @@ const output = {
   globalObject: "this"
 }
 
-const moduleConfig = {
-  rules: [
+const jsHandler = {
+  test: /\.(js|jsx)$/,
+  exclude: [
+    /node_modules/
+  ],
+  use: {
+    loader: "babel-loader",
+    options: babelConfig
+  }
+}
+
+const styleHandler = {
+  test: /\.(scss|sass|css)$/i,
+  oneOf: [
     {
-      test: /\.(js|jsx)$/,
-      exclude: [
-        /node_modules/
-      ],
-      use: {
-        loader: "babel-loader",
-        options: babelConfig
-      }
-    },
-    {
-      test: /\.(scss|sass|css)$/i,
-      oneOf: [
+      test: /\.module\.(scss|sass|css)$/,
+      use: [
+        MiniCssExtractPlugin.loader,
         {
-          test: /\.module\.(scss|sass|css)$/,
-          use: [
-            "style-loader",
-            {
-              loader: "css-loader",
-              options: {
-                modules: {
-                  localIdentName: "[local]-[hash:base64:7]",
-                  exportOnlyLocals: false
-                }
-              }
-            },
-            "sass-loader"
-          ]
+          loader: "css-loader",
+          options: {
+            modules: {
+              localIdentName: "[local]-[hash:base64:7]",
+              exportOnlyLocals: false
+            }
+          }
         },
-        {
-          use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader"
-          ]
-        }
+        "sass-loader"
       ]
     },
     {
-      test: /\.svg$/,
-      use: ["@svgr/webpack", "url-loader"]
+      test: /\.global\.(scss|sass|css)$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        "css-loader",
+        "sass-loader"
+      ]
+    },
+    {
+      use: [
+        "style-loader",
+        "css-loader",
+        "sass-loader"
+      ]
     }
   ]
 }
 
+const svgHandler = {
+  test: /\.svg$/,
+  use: ["@svgr/webpack", "url-loader"]
+}
+
+const moduleConfig = {
+  rules: [
+    jsHandler,
+    styleHandler,
+    svgHandler
+  ]
+}
+
+const plugins = [
+  new MiniCssExtractPlugin({
+    filename: "styles.css"
+  })
+]
+
 const externals = {
-  "react": {
-    root: "React",
-    commonjs2: "react",
-    commonjs: "react",
-    amd: "react",
-    umd: "react"
-  },
-  "react-dom": {
-    root: "ReactDOM",
-    commonjs2: "react-dom",
-    commonjs: "react-dom",
-    amd: "react-dom",
-    umd: "react-dom"
-  }
+  "react": "react",
+  "react-dom": "react-dom"
 }
 
 const optimization = {
@@ -86,6 +95,7 @@ module.exports = Object.assign({}, {
   entry,
   output,
   module: moduleConfig,
+  plugins,
   externals,
   optimization,
   stats,
