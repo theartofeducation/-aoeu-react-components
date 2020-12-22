@@ -32,6 +32,68 @@ In this folder, you need to create the following files:
 * `CHANGELOG.md` (optional) - When you are creating a new component, you _can_ create this file and leave it empty if you wish, but it is not necessary to do so. When the `version` task is run at the project level, and Lerna iterates through each package to increment it's version, it will also handle updating the `CHANGELOG.md` file if it exists, and it will create one if one does not exist.
 * In some cases, you will need additional files to support the implementation of the component, and that is fine, but this it the minimal, base set of files that you will need for a component.
 
+### Styling Components
+
+#### Sass
+
+The primary tool we use for styling comonents is [Sass](https://sass-lang.com/).
+
+#### CSS Modules
+
+Our [webpack](https://webpack.js.org/) build configuration is also setup to extract raw CSS using [CSS Modules](https://webpack.js.org/) using the `.module.scss` file naming convention as well. By convention, you can define any stylesheet and give it any name with the `.module.scss` extension, and import it into your component, and it's style classes will be extracted into the bundled CSS with randomly generated hash strings to help prevent class naming collisions.
+
+Inside the component, given a stylesheet named `styles.module.scss`, you can import those styles like this:
+
+```scss
+// styles.module.scss
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+```
+
+```jsx
+import styles from "./styles.module.scss"
+```
+
+Then, in your component, you can apply those styles to a component with the following syntax:
+
+```jsx
+<ul className={styles.list}>
+  {/* ... */}
+</ul>
+```
+
+If you have multiple classes that you wish to apply to your component, you can use the [clsx](https://github.com/lukeed/clsx/) utility for combining multiple classes, or even conditionally applying classes:
+
+```jsx
+export const List = ({ className }) => (
+  <ul className={clsx([styles.list, className])}>
+    {/* ... */}
+  </ul>
+)
+```
+
+#### Global Styles
+
+In cases where you wish to export styles that you DO NOT wish for the class names to be changed when processed in the build (for example, when  you're wrapping a third-party component that has a stylesheet that contains named classes that you don't want to be programmatically changed by the build), you can define and import a stylesheet with a `.global.scss` extension. Any styles either imported or defined in stylesheets with this extension will not be processed with CSS modules, and the names of the classes defined in these files or files imported into it with the Sass `@import` directive won't be altered and will be exported as defined during the build.
+
+As an example, if you wished to wrap the Material UI tooltip component, and needed to import it's styles for your component, that could be done similar to this:
+
+```scss
+// components/tooltip/styles.global.scss
+@import "@material-ui/dist/tooltip.css";
+```
+
+```jsx
+// components/tooltip/index.js
+import "./styles.global.scss"
+```
+
+In this example, the styles from the `tooltip.css` file that ships with the Material UI Tooltip component will be imported by our stylesheet, and in turn, because our component imports our `styles.global.scss` stylesheet, those styles will be export into `dist/styles.css` when webpack builds the component.
+
 ### The `package.json` file
 
 Packages in a monorepo that are intended to be published and consumed by dependent projects are unique and as a result have special requirements for how they have to be defined in the `package.json` file. The `package.json` file for your component should typically resemble something very close to this:
@@ -41,10 +103,10 @@ Packages in a monorepo that are intended to be published and consumed by depende
   "name": "@aoeu/<PACKAGE-NAME>",
   "version": "0.1.3",
   "description": "A brief description of the component",
-  "main": "index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
-    "dist/index.js"
+    "dist/index.js",
+    "dist/styles.css"
   ],
   "author": "The Art of Education University",
   "license": "MIT",
@@ -56,10 +118,6 @@ Packages in a monorepo that are intended to be published and consumed by depende
   },
   "peerDependencies": {
     "react": "~17.0.0"
-  },
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --config ../../webpack.config.js"
   }
 }
 ```
@@ -80,15 +138,11 @@ The description is not critical, but it does provide a useful, brief overview of
 
 #### `main`
 
-The `main` attribute identifies the main entry point file for the component. In most cases, this will be where the component will be defined and exported. By convention, it should nearly always be left as `index.js`.
-
-#### `module`
-
-The `module` attribute is where things get a little bit weird, but is also where the magic happens here. You will not (yet) find this attribute in the official `package.json` documentation by either [npm](https://docs.npmjs.com/cli/v6/configuring-npm/package-json) or [node.js](https://nodejs.dev/learn/the-package-json-guide), because it is part of [a proposal for using metadata in `package.json` files](https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md) to help identify how modular JavaScript can be consumed. However, the use of this metadata has been widely adopted by the major module bundlers ([webpack](https://webpack.js.org/) and [rollup](https://www.rollupjs.org/guide/en/)). We use webpack for bundling our package assets, and it has [documented the use of this attribute](https://webpack.js.org/guides/author-libraries/#final-steps) as an appropriate means of identifying which file in a distributed package should be consumed when imported by dependent modules. Our webpack build configuration places the bundled output of its builds in `dist/index.js` in the package folder, and this is also included in the package archive that is published to the npm registry, so the value of the `module` attribute in the component's `package.json` file should almost always be set to `dist/index.js`.
+The `main` attribute identifies the main entry point file for the component that consumers of the component should use. Because this identifies for consumers which file should be used when imported, it is _critical_ that this attribute be present, and it's value be correctly set to a file that can be imported by consumers. In nearly all cases, this will be where the the bundled output of the component is generated to by the main `build` task, and by convention, it should nearly always be left as `dist/index.js`.
 
 #### `files`
 
-While not nearly as important as the `module` attribute, the `files` array is an important one, as it also more officially identifies files and file patterns that describe entries to be included when the package is installed as a dependency by consumers. More information on what this is used for can be found in [the npm `package.json` documentation](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#files). For most components, this should typically just include a single entry for `dist/index.js`, but in rare cases, you may wish to include other assets, such as images files that may need to be available for use by the package, etc.
+The `files` array is an important one, as it identifies the files and file patterns that describe entries to be included when the package is installed as a dependency by consumers. More information on what this is used for can be found in [the npm `package.json` documentation](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#files). For components that don't import any stylesheets or have any styling, this will typically just include a single entry for `dist/index.js`, but in rare cases, you may wish to include other assets, such as images files that may need to be available for use by the package, etc. For components that import stylesheets, the build will also export and generate an accompanying `styles.css` file, so the `files` array for such components should also include `dist/styles.css` as well.
 
 #### `author`
 
@@ -149,20 +203,3 @@ In some cases, `peerDependencies` will not be necessary (i.e. `@aoeu/sass-common
 ```
 
 This serves the primary purpose of letting consumers know, when the package is installed, that it will need to have React included as a dependency, because the component uses it, but the React library _itself_ is _NOT_ included in the component's bundled output that the consumer is using. The webpack build for the overall project that is responsible for bundling the component output for distribution and consumption is configured to _NOT_ include the React library in the bundled output (for bundle size reasons).
-
-#### `scripts`
-
-For the majority of the components and packages in the project overall, you will need to have at least two `scripts` defined in the `package.json` file:
-
-```json
-"scripts": {
-  "prebuild": "rm -rf ./dist",
-  "build": "webpack --config ../../webpack.config.js"
-}
-```
-
-These scripts are used and referenced and used in the main project's `prepublishOnly` task, which is run prior to the `publish` task being run, and it executes `lerna run build`, which iterates through each of the configured components/packages and runs the `build` task configured in the package. Each package needs to be configured to run webpack using the shared `webpack.config.js` file, which bundles the component/package output for use by consumers.
-
-The `prebuild` task uses a convention with npm scripts, and by prefixing the `build` script name with `pre`, this task will always be run _before_ the `build` task is run. In this case, it simply deletes the local `dist` folder if it exists, cleaning up any existing artifact from previous builds.
-
-In the case of components or packages that don't contain JavaScript sources or that for whatever reason don't need to be bundled with webpack (i.e. `@aoeu/sass-common` or `@aoeu/logo-svgs`), these scripts can be omitted.

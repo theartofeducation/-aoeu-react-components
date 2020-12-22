@@ -1,6 +1,11 @@
 {
   "private": true,
   "name": "@aoeu/color-palettes",
+  "version": "0.0.1",
   "description": "Color Palette components used for Storybook / Style Guide documentation",
-  "version": "0.0.1"
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js",
+    "dist/styles.css"
+  ]
 }
