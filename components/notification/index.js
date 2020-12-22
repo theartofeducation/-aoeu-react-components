@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { ToastContainer, Flip, toast } from "react-toastify"
 import { isNotEmpty } from "@aoeu/util"
-import "react-toastify/dist/ReactToastify.css"
+import "./styles.global.scss"
 
 export const NotificationCenter = ({
   position,
