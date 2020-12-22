@@ -4,7 +4,8 @@
   "description": "List and ListItem Components for rendering unordered lists",
   "main": "dist/index.js",
   "files": [
-    "dist/index.js"
+    "dist/index.js",
+    "dist/styles.css"
   ],
   "author": "The Art of Education University",
   "license": "MIT",

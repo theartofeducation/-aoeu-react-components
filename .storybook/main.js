@@ -22,7 +22,43 @@ module.exports = {
     }
   ],
   webpackFinal: async (config, { configType }) => {
-    const svgAssetRule = config.module.rules.find(({ test }) => test.test(".svg"))
+    // ========================================================================
+    // This is where we customize the Storybook webpack configuration
+    // ========================================================================
+
+    const { module: { rules } } = config
+
+    // ========================================================================
+    // Tweak the Sass processing rule to support files with a `.global.scss`
+    // extension *without* using CSS Modules
+    // ========================================================================
+    const scssAssetRuleIndex = rules.indexOf(rules.find(({ test }) => test.test(".scss")))
+    let scssAssetRule = rules[scssAssetRuleIndex]
+    const { test, use: currentLoaders } = scssAssetRule
+    scssAssetRule = {
+      test: /\.(scss|sass|css)$/i,
+      oneOf: [
+        {
+          test: /\.module\.(scss|sass|css)$/,
+          use: [...currentLoaders]
+        },
+        {
+          test: /\.global\.(scss|sass|css)$/,
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+          ]
+        }
+      ]
+    }
+
+    config.module.rules.splice(scssAssetRuleIndex, 1, scssAssetRule)
+
+    // ========================================================================
+    // Add @svgr/webpack to SVG import processing
+    // ========================================================================
+    const svgAssetRule = rules.find(({ test }) => test.test(".svg"))
 
     const svgAssetLoader = {
       loader: svgAssetRule.loader,

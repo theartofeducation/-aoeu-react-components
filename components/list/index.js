@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 import clsx from "clsx"
 import styles from "./styles.module.scss"
 
+/**
+ * Renders an unstyled unordered list <ul> element (no list style)
+ */
 export const List = ({
   children,
   className,
@@ -29,8 +32,17 @@ List.propTypes = {
     PropTypes.element,
     PropTypes.object
   ]),
+  /**
+   * Optional style class
+   */
   className: PropTypes.string,
+  /**
+   * Optional list orientation (alignment). Valid options are "left", "right" or "centered".
+   */
   orientation: PropTypes.string,
+  /**
+   * When true, the margin is removed from the outside of the first and last items in the list.
+   */
   trimmed: PropTypes.bool
 }
 
@@ -39,6 +51,9 @@ List.defaultProps = {
   trimmed: true
 }
 
+/**
+ * Renders a list item <li> element
+ */
 export const ListItem = ({ children, className }) => (
   <li className={clsx([styles.listItem, className])}>
     {children}
@@ -46,10 +61,16 @@ export const ListItem = ({ children, className }) => (
 )
 
 ListItem.propTypes = {
+  /**
+   * List item content
+   */
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
     PropTypes.object
   ]),
+  /**
+   * Optional style class
+   */
   className: PropTypes.string
 }

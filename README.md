@@ -16,12 +16,18 @@ These are the main libraries and tools that are used in this project. They will 
 * `yarn run mdlint` - runs `markdownlint` for status analysis of markdown documents
 * `yarn run lint` - runs both `eslint` and `mdlint` tasks
 * `yarn run test` - runs unit tests for JS modules and components with [Jest](https://jestjs.io/)
+* `yarn run linkall` - runs `yarn link` in each component/package in the project, which makes them ALL available for linking from other projects when doing local development.
+* `yarn run unlinkall` - runs `yarn unlink` in each component/package in the project, removes symlinks for each of them. You will typically want to run this when you're done with local development work.
+* `yarn run clean` - deletes both the `node_modules` and `dist` folders in each component/package.
+* `yarn run prebuild` - runs `yarn run clean`
+* `yarn run build` - runs `webpack` to build each component/package in the project. You will not commonly need to run this manually yourself. This is called from the `prepublishOnly` task to build each component/package to prep each package for publishing to the npm/GitHub package registry.
 * `yarn run storybook` - runs a [local instance](http://localhost:6006) of Storybook
 * `yarn run sb` - also runs Storybook (aliases the `storybook` task) (yes, I'm lazy)
 * `yarn run build-storybook` - builds a static instance of Storybook for deployment/hosting/reference
 * `yarn run bootstrap` - runs `lerna bootstrap`, which handles installation of dependencies for the individual packages, including and especially linking any cross-dependencies between packages. You can find [more details here](https://lerna.js.org/#command-bootstrap).
 * `yarn run version` - runs `lerna version`, which handles incrementing the versions for each individual package in the project, updating the `CHANGELOG.md` for each package, and applying tags to the repository for each package that gets updated. You can find [more details about the `lerna version` command here](https://github.com/lerna/lerna/tree/main/commands/version#readme).
 * `yarn run publish` - runs `lerna publish from-package`, which handles publishing packages that have not already/yet been published to the configured package registry. You can find [more details about the `lerna publish` command here](https://github.com/lerna/lerna/blob/main/commands/publish#readme).
+* `yarn run xlink` - runs a custom script to help with managing un/linking common cross-project dependencies. See additional documentation on this below.
 
 ## Development
 
@@ -131,6 +137,26 @@ You can read more about how yarn workspaces work in [the yarn documentation here
 ### Bootstrapping
 
 It will be important, especially during the course of local development, to ensure that you run the `yarn bootstrap` task, which runs the `lerna bootstrap` command. This is important because Lerna will handle the arduous and maddening task of iterating through each of the component/package folders in the project, inspecting their cross-dependencies, and handle running all of the necessary `yarn link` commands so that those cross-package dependencies resolve for you properly during local development. [Additional details and guidelines for how the `lerna boostrap` command works can be found in its documentation](https://github.com/lerna/lerna/tree/main/commands/bootstrap#readme).
+
+### Managing cross-project shared dependencies
+
+When doing cross-project development, and linking components or packages from `ui-common` to external react projects to support local development, you will almost certainly run into the dreaded [Invalid Hook Call Warning](https://reactjs.org/warnings/invalid-hook-call-warning.html). This document won't go into detail about that issue, but if you're curious about it, in addition to that page in their documentation, you can read in-depth about it [here](https://github.com/facebook/react/issues/13991) and [here](https://github.com/facebook/react/issues/14257) as well. The only solution that I was able to get to consistently work to solve this issue was to setup symlinks to the dependencies that are shared between `ui-common` and projects that depend on the resources in it, which most commonly are `react` and `react-dom`, but could be others as well as it grows.
+
+Because setting up and configuring those links correctly is awkward/cumbersome at best, this project includes a command-link script to facilitate doing so in a (hopefully) helpful and automated fashion. That script can be run like this:
+
+```sh
+yarn run xlink
+```
+
+Running this will prompt the user for information. The first thing it will ask for is what action you wish to take: `link`, `unlink` or `status`.
+
+Selecting `status` will result in displaying a list of the links that yarn currently has registered globally, and the paths that each of those links points to.
+
+Selecting either `link` or `unlink` will prompt the user with a list of packages for which to perform either the `link`ing or `unlink`ing action. The user will additionally be prompted to enter a `Relative path to the project to link to`, for example: `../some-nextjs-project`. With the list of packages to be `link`ed or `unlink`ed and the target relative path, the script will handle either linking or unlinking each of the selected packages into the directory resolved by the given relative path to the dependent project.
+
+This should help resolve any issues with the Invalid Hook Call Warning, and allow successful continued local development using shared components and packages from `ui-common`.
+
+> **NOTE:** _This will result in **BOTH** the `ui-common` library **AND the dependent project using the same version of React**, and it will use the one that is configured and installed in the `ui-common/node_modules` folder. This is important to understand, in case the version of React configured in `ui-common` and the dependent projects are different, or if they have different requirements._
 
 ### Versioning
 
