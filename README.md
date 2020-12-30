@@ -16,18 +16,17 @@ These are the main libraries and tools that are used in this project. They will 
 * `yarn run mdlint` - runs `markdownlint` for status analysis of markdown documents
 * `yarn run lint` - runs both `eslint` and `mdlint` tasks
 * `yarn run test` - runs unit tests for JS modules and components with [Jest](https://jestjs.io/)
-* `yarn run linkall` - runs `yarn link` in each component/package in the project, which makes them ALL available for linking from other projects when doing local development.
-* `yarn run unlinkall` - runs `yarn unlink` in each component/package in the project, removes symlinks for each of them. You will typically want to run this when you're done with local development work.
 * `yarn run clean` - deletes both the `node_modules` and `dist` folders in each component/package.
 * `yarn run prebuild` - runs `yarn run clean`
 * `yarn run build` - runs `webpack` to build each component/package in the project. You will not commonly need to run this manually yourself. This is called from the `prepublishOnly` task to build each component/package to prep each package for publishing to the npm/GitHub package registry.
+* `yarn run build:watch` - runs a watch script to trigger builds when files change. This command is useful (necessary) when you are doing active development on a component or package that is consumed by an external project, and you need the changes to the linked package to propagate and trigger a rebuild/refresh of the dependent project during development.
 * `yarn run storybook` - runs a [local instance](http://localhost:6006) of Storybook
 * `yarn run sb` - also runs Storybook (aliases the `storybook` task) (yes, I'm lazy)
 * `yarn run build-storybook` - builds a static instance of Storybook for deployment/hosting/reference
 * `yarn run bootstrap` - runs `lerna bootstrap`, which handles installation of dependencies for the individual packages, including and especially linking any cross-dependencies between packages. You can find [more details here](https://lerna.js.org/#command-bootstrap).
 * `yarn run version` - runs `lerna version`, which handles incrementing the versions for each individual package in the project, updating the `CHANGELOG.md` for each package, and applying tags to the repository for each package that gets updated. You can find [more details about the `lerna version` command here](https://github.com/lerna/lerna/tree/main/commands/version#readme).
 * `yarn run publish` - runs `lerna publish from-package`, which handles publishing packages that have not already/yet been published to the configured package registry. You can find [more details about the `lerna publish` command here](https://github.com/lerna/lerna/blob/main/commands/publish#readme).
-* `yarn run xlink` - runs a custom script to help with managing un/linking common cross-project dependencies. See additional documentation on this below.
+* `yarn run xlink` - runs the `xlink` CLI tool to help with managing un/linking common cross-project dependencies. See additional documentation on this below.
 
 ## Development
 
@@ -142,7 +141,7 @@ It will be important, especially during the course of local development, to ensu
 
 When doing cross-project development, and linking components or packages from `ui-common` to external react projects to support local development, you will almost certainly run into the dreaded [Invalid Hook Call Warning](https://reactjs.org/warnings/invalid-hook-call-warning.html). This document won't go into detail about that issue, but if you're curious about it, in addition to that page in their documentation, you can read in-depth about it [here](https://github.com/facebook/react/issues/13991) and [here](https://github.com/facebook/react/issues/14257) as well. The only solution that I was able to get to consistently work to solve this issue was to setup symlinks to the dependencies that are shared between `ui-common` and projects that depend on the resources in it, which most commonly are `react` and `react-dom`, but could be others as well as it grows.
 
-Because setting up and configuring those links correctly is awkward/cumbersome at best, this project includes a command-link script to facilitate doing so in a (hopefully) helpful and automated fashion. That script can be run like this:
+Because setting up and configuring those links correctly is awkward/cumbersome at best, this project includes [`xlink`](https://github.com/theartofeducation/xlink) as a dependency to help facilitate this. More details about xlink can be found in [the project README](https://github.com/theartofeducation/xlink#readme). That script can be run like this:
 
 ```sh
 yarn run xlink
