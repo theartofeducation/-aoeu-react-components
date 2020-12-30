@@ -9,13 +9,13 @@ import styles from "./styles.module.scss"
 export const List = ({
   children,
   className,
-  orientation,
-  trimmed
+  layout,
+  orientation
 }) => {
   const classes = clsx([
     styles.list,
+    styles[layout],
     styles[orientation],
-    trimmed && styles.trimmed,
     className
   ])
 
@@ -37,25 +37,25 @@ List.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * List layout, either "grid" or "flex"
+   */
+  layout: PropTypes.oneOf(["grid", "flex"]),
+  /**
    * Optional list orientation (alignment). Valid options are "left", "right" or "centered".
    */
-  orientation: PropTypes.string,
-  /**
-   * When true, the margin is removed from the outside of the first and last items in the list.
-   */
-  trimmed: PropTypes.bool
+  orientation: PropTypes.string
 }
 
 List.defaultProps = {
   orientation: "left",
-  trimmed: true
+  layout: "grid"
 }
 
 /**
  * Renders a list item <li> element
  */
 export const ListItem = ({ children, className }) => (
-  <li className={clsx([styles.listItem, className])}>
+  <li className={className}>
     {children}
   </li>
 )

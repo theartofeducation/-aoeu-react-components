@@ -1,0 +1,65 @@
+// Typography
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$primary-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font-family: "chaparral-pro", Georgia, serif;
+
+// Breakpoints
+$bp-xsmall: 20rem; // 320px ( / 16 )
+$bp-small: 32rem; // 512px ( / 16 )
+$bp-medium: 48rem; // 768px ( / 16 )
+$bp-large: 64rem; // 1024px ( / 16 )
+$bp-xlarge: 80rem; // 1280px ( / 16 )
+
+// Brand Colors
+$aoeu-blue: #00AFD7;
+$aoeu-blue-dark: #0076A8;
+$aoeu-dark-gray: #545555;
+$aoeu-rio-grande: #C4D600;
+$aoeu-apple-green: #84BD00;
+$aoeu-observatory: #00966C;
+$aoeu-tiffany-blue: #00B2A9;
+$aoeu-allports: #0076A8;
+$aoeu-indigo: #486CC7;
+$aoeu-toolbox: #7474C1;
+$aoeu-purple-mountains-majesty: #A57FB2;
+$aoeu-free-speech-magenta: #E45DBF;
+$aoeu-vivid-cerise: #DF1995;
+$aoeu-shiraz: #BA0C2F;
+$aoeu-flamingo: #E5554F;
+$aoeu-mango-tango: #EA7600;
+$aoeu-sunglow: #FFC845;
+$aoeu-oracle: #395056;
+$aoeu-athens-gray: #EBF0F3;
+
+// Product Colors
+
+// Product: Masters
+$aoeu-masters-primary: $aoeu-blue;
+$aoeu-masters-secondary: $aoeu-blue-dark;
+$aoeu-masters-tertiary: #CFCFCF;
+
+// Product: Courses
+$aoeu-courses-primary: #485cc7;
+$aoeu-courses-secondary: #7474c1;
+$aoeu-courses-tertiary: $aoeu-blue;
+
+// Product: PRO
+$aoeu-pro-primary: $aoeu-flamingo;
+$aoeu-pro-secondary: $aoeu-sunglow;
+$aoeu-pro-tertiary: #f7bd98;
+
+// Product: FLEX
+$aoeu-flex-primary: $aoeu-tiffany-blue;
+$aoeu-flex-secondary: #4cc7e3;
+$aoeu-flex-tertiary: $aoeu-allports;
+
+// Product: Magazine
+$aoeu-magazine-primary: $aoeu-apple-green;
+$aoeu-magazine-secondary: $aoeu-rio-grande;
+$aoeu-magazine-tertiary: $aoeu-observatory;
+
+// Product: Conference
+$aoeu-conference-primary: $aoeu-free-speech-magenta;
+$aoeu-conference-secondary: $aoeu-rio-grande;
+$aoeu-conference-tertiary: $aoeu-mango-tango;

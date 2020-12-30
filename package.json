@@ -9,11 +9,10 @@
     "eslint": "eslint --ext .js --ext .jsx stories components",
     "mdlint": "markdownlint \"**/*.{md,mdx}\" --ignore \"**/node_modules/**\" --ignore \"**/CHANGELOG.md\"",
     "test": "jest",
-    "linkall": "lerna exec --parallel -- yarn link",
-    "unlinkall": "lerna exec --parallel -- yarn unlink",
     "clean": "lerna exec --parallel -- rm -rf {dist,node_modules}",
     "prebuild": "yarn run clean",
     "build": "lerna exec --parallel -- webpack --config ../../webpack.config.js",
+    "build:watch": "node ./scripts/build-watch.js",
     "storybook": "start-storybook -s ./static -p 6006",
     "sb": "yarn run storybook",
     "build-storybook": "build-storybook -s ./static",
@@ -21,7 +20,7 @@
     "version": "lerna version --conventional-commits",
     "publish": "lerna publish from-package",
     "prepublishOnly": "yarn run build",
-    "xlink": "plop --plopfile scripts/xlink.js xlink"
+    "xlink": "xlink"
   },
   "repository": {
     "type": "git",
@@ -42,6 +41,7 @@
     "clsx": "^1.1.1"
   },
   "devDependencies": {
+    "@aoeu/xlink": "^0.1.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.12.1",
@@ -67,6 +67,7 @@
     "babel-loader": "^8.2.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chalk": "^4.1.0",
+    "chokidar": "^3.4.3",
     "conventional-changelog-conventionalcommits": "^4.5.0",
     "css-loader": "^5.0.0",
     "eslint": "^7.13.0",

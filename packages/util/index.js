@@ -5,8 +5,20 @@ export function withWindow(fn) {
     typeof fn !== "undefined" &&
     typeof fn === "function"
   ) {
-    fn(window)
+    return fn(window)
   }
+}
+
+export function withDocument(fn) {
+  return withWindow(window => {
+    return fn(window.document)
+  })
+}
+
+export function withNavigator(fn) {
+  return withWindow(window => {
+    return fn(window.navigator)
+  })
 }
 
 export const isEmpty = target => {

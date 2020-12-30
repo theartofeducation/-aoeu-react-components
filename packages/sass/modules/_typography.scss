@@ -1,10 +1,6 @@
 // TypeKit import
 @import url("https://use.typekit.net/fmc7wgn.css");
-
-$base-font-size: 1rem;
-$base-line-height: 1.25 * $base-font-size;
-$primary-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
-$secondary-font-family: "chaparral-pro", Georgia, serif;
+@import "../variables";
 
 $type-settings: (
   -1: (
