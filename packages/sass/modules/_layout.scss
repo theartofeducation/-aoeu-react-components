@@ -1,5 +1,15 @@
+@import "../variables";
+
 @mixin centered-content {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+:root {
+  --bp-xsmall: #{$bp-xsmall};
+  --bp-small: #{$bp-small};
+  --bp-medium: #{$bp-medium};
+  --bp-large: #{$bp-large};
+  --bp-xlarge: #{$bp-xlarge};
 }
